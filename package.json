@@ -1,0 +1,80 @@
+{
+  "name": "unpartial",
+  "version": "0.0.0",
+  "description": "Unpartial a partialed object",
+  "main": "dist-es5/index.js",
+  "module": "dist-es2015/index.js",
+  "typings": "dist-es5/index.d.ts",
+  "files": [
+    "dist-es5",
+    "dist-es2015"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build-es5 && npm run build-es2015",
+    "build-es2015": "tsc -p tsconfig.es2015.json",
+    "build-es5": "tsc -p tsconfig.es5.json",
+    "clean": "rimraf dist-es5 dist-es2015",
+    "dc": "npm run dependency-check",
+    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
+    "lint": "tslint -p tsconfig.json --type-check \"src/**/*.ts\"",
+    "prepare": "npm run build",
+    "postpublish": "git push",
+    "preversion": "git pull && npm run verify",
+    "verify": "npm run lint && npm run coverage && npm run dependency-check",
+    "coverage": "nyc npm test",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "npm run clean && tsc && ava",
+    "watch": "npm run clean && node scripts/watch.js",
+    "debug": "node scripts/debug.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unional/unpartial.git"
+  },
+  "keywords": [
+    "cli",
+    "builder",
+    "command",
+    "parser"
+  ],
+  "author": {
+    "name": "Homa Wong",
+    "email": "homawong@gmail.com",
+    "url": "https://github.com/unional"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unional/unpartial/issues"
+  },
+  "homepage": "https://github.com/unional/unpartial#readme",
+  "ava": {
+    "files": [
+      "dist-es5/**/*.spec.js"
+    ],
+    "source": [
+      "scripts/*.js",
+      "dist-es5/**/*.js",
+      "*.json"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "scripts",
+      "**/*.spec.*",
+      "**/fixtures/**/*",
+      "**/test/**/*"
+    ]
+  },
+  "dependencies": {
+    "lodash.defaults": "^4.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "dependency-check": "^2.9.1",
+    "nyc": "^11.2.1",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.7.0",
+    "tslint-config-unional": "^0.8.0",
+    "typescript": "^2.5.3"
+  }
+}
