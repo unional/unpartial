@@ -1,56 +1,47 @@
-# CLI Builder
+# Unpartial
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/unional/clibuilder.svg)](https://greenkeeper.io/)
-
-[![unstable][unstable-image]][unstable-url]
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
+[![unstable][unstable-image]][unstable-url]
 [![Build status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/unional/unpartial.svg)](https://greenkeeper.io/)
 
-Building CLI based on Command Pattern.
+Unpartial a config
 
-[`clibuilder-testutil`](https://github.com/unional/clibuilder-testutil) contains test utilities to help you test against your application.
-
-## Usage
+It is very common to define a Config interface and Partial it in a function argument.
+When we received the arguement, we want to merge it with our default config before using it:
 
 ```ts
-// bin.ts
-import { Cli } from 'clibuilder'
+import { unpartial } from 'unpartial'
 
-import { commandA, commandB } from './commands'
+interface Config {
+  require: { a: number }
+  optional?: { a: number }
+}
+const defaultConfig = { require: { a: 1 }}
 
-const cli = new Cli('yourcli', '1.0.0', [commandA, commandB])
-cli.parse(process.argv)
-
-// commands.ts
-import { CommandSpec } from 'clibuilder'
-
-export const commandA = {
-  name: 'echo',
-  // `args` is the parsed minimist args.
-  // `argv` is the raw argv.
-  run(args, argv) {
-    this.ui.info(argv)
-  }
-} as CommandSpec
+function foo(givenConfig: Partial<Config>) {
+  const config = unpartial(givenConfig, defaultConfig);
+  // use config with type safety
+}
 ```
 
-You can override the display mechanism:
+It also support merging two default configs.
+This is useful when you are extending config from some other package/class.
 
 ```ts
-import { Cli, PlainPresenter } from 'clibuilder'
+import { unpartial} from 'unpartial'
 
-class YourPresenter extends PlainPresenter { ... }
+import { Option, defaultOption } from 'another-package'
 
-const presenterFactory = {
-  createCliPresenter(options) { return new YourPresenter(options) },
-  createCommandPresenter(options) { return new YourPresenter(options) }
+interface MyOption extends Option { ... }
+
+const myDefaultOption = { ... }
+
+function foo(givenOption: Partial<MyOption>) {
+  const option = unpartial(givenOption, myDefaultOption, defaultOption)
 }
-
-const cli = new Cli('yourcli', '1.0.0', [], { presenterFactory })
-
-cli.parse(process.argv)
 ```
 
 ## Contribute
@@ -66,11 +57,11 @@ npm run watch
 
 [unstable-image]: http://badges.github.io/stability-badges/dist/unstable.svg
 [unstable-url]: http://github.com/badges/stability-badges
-[npm-image]: https://img.shields.io/npm/v/clibuilder.svg?style=flat
-[npm-url]: https://npmjs.org/package/clibuilder
-[downloads-image]: https://img.shields.io/npm/dm/clibuilder.svg?style=flat
-[downloads-url]: https://npmjs.org/package/clibuilder
-[travis-image]: https://img.shields.io/travis/unional/clibuilder.svg?style=flat
-[travis-url]: https://travis-ci.org/unional/clibuilder
-[coveralls-image]: https://coveralls.io/repos/github/unional/clibuilder/badge.svg
-[coveralls-url]: https://coveralls.io/github/unional/clibuilder
+[npm-image]: https://img.shields.io/npm/v/unpartial.svg?style=flat
+[npm-url]: https://npmjs.org/package/unpartial
+[downloads-image]: https://img.shields.io/npm/dm/unpartial.svg?style=flat
+[downloads-url]: https://npmjs.org/package/unpartial
+[travis-image]: https://img.shields.io/travis/unional/unpartial.svg?style=flat
+[travis-url]: https://travis-ci.org/unional/unpartial
+[coveralls-image]: https://coveralls.io/repos/github/unional/unpartial/badge.svg
+[coveralls-url]: https://coveralls.io/github/unional/unpartial
