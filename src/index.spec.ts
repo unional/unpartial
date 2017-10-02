@@ -1,17 +1,12 @@
 import test from 'ava'
 
+import { unpartial } from './index'
+
 interface Config {
   require: { a: number }
   optional?: { a: number }
 }
 const defaultConfig: Config = { require: { a: 1 } }
-
-import defaults = require('lodash.defaults')
-function unpartial<T extends Object, U, R extends Object>(obj: U, src1: T, src2?: R): T & R {
-  if (src1 === undefined || src1 === null)
-    return obj as any
-  return defaults(obj, src1, src2)
-}
 
 test(`ignore src1 when it is null or undefined (in JS)`, t => {
   t.is(unpartial(undefined, undefined as any), undefined)
