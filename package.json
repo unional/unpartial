@@ -1,6 +1,6 @@
 {
   "name": "unpartial",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unpartial a partialed object",
   "main": "dist-es5/index.js",
   "module": "dist-es2015/index.js",
