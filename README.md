@@ -7,9 +7,9 @@
 [![Coverage Status][coveralls-image]][coveralls-url]
 [![Greenkeeper badge](https://badges.greenkeeper.io/unional/unpartial.svg)](https://greenkeeper.io/)
 
-Unpartial a config
+Unpartial an interface
 
-It is very common to define a Config interface and Partial it in a function argument.
+It is very common to define a config interface and `Partial<>` it in a function argument.
 When we received the arguement, we want to merge it with our default config before using it:
 
 ```ts
