@@ -1,8 +1,8 @@
 # Unpartial
 
+[![unstable][unstable-image]][unstable-url]
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
-[![unstable][unstable-image]][unstable-url]
 [![Build status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
 [![Greenkeeper badge](https://badges.greenkeeper.io/unional/unpartial.svg)](https://greenkeeper.io/)
@@ -19,7 +19,7 @@ interface Config {
   require: { a: number }
   optional?: { a: number }
 }
-const defaultConfig = { require: { a: 1 }}
+const defaultConfig = { require: { a: 1 } }
 
 function foo(givenConfig: Partial<Config>) {
   const config = unpartial(givenConfig, defaultConfig);
@@ -31,7 +31,7 @@ It also support merging two default configs.
 This is useful when you are extending config from some other package/class.
 
 ```ts
-import { unpartial} from 'unpartial'
+import { unpartial } from 'unpartial'
 
 import { Option, defaultOption } from 'another-package'
 
