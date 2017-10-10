@@ -22,26 +22,15 @@ interface Config {
 const defaultConfig = { require: { a: 1 } }
 
 function foo(givenConfig: Partial<Config>) {
-  const config = unpartial(givenConfig, defaultConfig);
+  const config = unpartial(defaultConfig, givenConfig);
   // use config with type safety
 }
 ```
 
-It also support merging two default configs.
-This is useful when you are extending config from some other package/class.
+Code complete is avaiable as you type:
 
 ```ts
-import { unpartial } from 'unpartial'
-
-import { Option, defaultOption } from 'another-package'
-
-interface MyOption extends Option { ... }
-
-const myDefaultOption = { ... }
-
-function foo(givenOption: Partial<MyOption>) {
-  const option = unpartial(givenOption, myDefaultOption, defaultOption)
-}
+const config = unpartial(defaultConfig, { /* code completion here */});
 ```
 
 ## Contribute
