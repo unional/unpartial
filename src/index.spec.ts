@@ -9,18 +9,29 @@ interface Config {
 const defaultConfig: Config = { require: { a: 1 } }
 
 test('undefined base returns undefined (in JS)', t => {
+  // to avoid unintended error
   t.is(unpartial(undefined as any, undefined), undefined)
   t.is(unpartial(undefined as any, null), undefined)
   t.is(unpartial(undefined as any, {}), undefined)
+
+  t.is(unpartial({}, undefined as any, undefined), undefined)
+  t.is(unpartial({}, undefined as any, null), undefined)
+  t.is(unpartial({}, undefined as any, {}), undefined)
 })
 
 test('null base returns null (in JS)', t => {
+  // to avoid unintended error
   t.is(unpartial(null as any, undefined), null)
   t.is(unpartial(null as any, null), null)
   t.is(unpartial(null as any, {}), null)
+
+  t.is(unpartial({}, null as any, undefined), null)
+  t.is(unpartial({}, null as any, null), null)
+  t.is(unpartial({}, null as any, {}), null)
 })
 
 test('undefined superBase returns undefined (in JS)', t => {
+  // to avoid unintended error
   t.is(unpartial(undefined as any, undefined as any, undefined), undefined)
   t.is(unpartial(undefined as any, undefined as any, null), undefined)
   t.is(unpartial(undefined as any, undefined as any, {}), undefined)
