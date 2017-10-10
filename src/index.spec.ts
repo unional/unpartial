@@ -20,14 +20,39 @@ test('null base returns null (in JS)', t => {
   t.is(unpartial(null as any, {}), null)
 })
 
+test('undefined superBase returns undefined (in JS)', t => {
+  t.is(unpartial(undefined as any, undefined as any, undefined), undefined)
+  t.is(unpartial(undefined as any, undefined as any, null), undefined)
+  t.is(unpartial(undefined as any, undefined as any, {}), undefined)
+})
+
+test('null superBase returns null (in JS)', t => {
+  t.is(unpartial(null as any, null as any, undefined), null)
+  t.is(unpartial(null as any, null as any, null), null)
+  t.is(unpartial(null as any, null as any, {}), null)
+})
+
+
 test('base and partial are not modified', t => {
-  const partial = { require: { a: 2 } }
-  const base = { require: { a: 1 }, optional: { a: 3 } } as Config
+  const base = { require: { a: 1 }, optional: { a: 2 } } as Config
+  const partial = { require: { a: 3 } }
   const actual = unpartial(base, partial)
 
-  t.deepEqual(base, { require: { a: 1 }, optional: { a: 3 } })
-  t.deepEqual(partial, { require: { a: 2 } })
-  t.deepEqual(actual, { require: { a: 2 }, optional: { a: 3 } })
+  t.deepEqual(base, { require: { a: 1 }, optional: { a: 2 } })
+  t.deepEqual(partial, { require: { a: 3 } })
+  t.deepEqual(actual, { require: { a: 3 }, optional: { a: 2 } })
+})
+
+test('superBase base and partial are not modified', t => {
+  const superBase = { require: { a: 1 } }
+  const base = { require: { a: 2 }, optional: { a: 3 } } as Config
+  const partial = { require: { a: 4 } }
+  const actual = unpartial(superBase, base, partial)
+
+  t.deepEqual(superBase, { require: { a: 1 } })
+  t.deepEqual(base, { require: { a: 2 }, optional: { a: 3 } })
+  t.deepEqual(partial, { require: { a: 4 } })
+  t.deepEqual(actual, { require: { a: 4 }, optional: { a: 3 } })
 })
 
 test('unpartial a partial config with optional', t => {
