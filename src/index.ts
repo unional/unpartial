@@ -1,7 +1,7 @@
 import defaults = require('lodash.defaults')
 
 export function unpartial<T extends object>(base: T, partial: Partial<T>): T
-export function unpartial<T extends object, R extends object = {}>(superBase: R, base: T, partial: Partial<T>): T
+export function unpartial<T extends object, R extends object = {}>(superBase: R, base: T, partial: Partial<T>): T & R
 export function unpartial(arg1, arg2, arg3?) {
   if (arguments.length === 3) {
     const superBase = arg1
