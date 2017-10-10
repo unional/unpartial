@@ -33,6 +33,23 @@ Code complete is avaiable as you type:
 const config = unpartial(defaultConfig, { /* code completion here */});
 ```
 
+It also supports merging two default configs.
+This is useful when you are extending interface from another package/class.
+
+```ts
+import { unpartial } from 'unpartial'
+
+import { Option, defaultOption } from 'another-package'
+
+interface MyOption extends Option { ... }
+
+const myDefaultOption = { ... }
+
+function foo(givenOption: Partial<MyOption>) {
+  const option = unpartial(defaultOption, myDefaultOption, givenOption)
+}
+```
+
 ## Contribute
 
 ```sh
