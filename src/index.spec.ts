@@ -79,3 +79,7 @@ test('specify target interface explicitly', t => {
   const x = unpartial<Config>({ require: { a: 1 } }, {})
   t.is(x.require.a, 1)
 })
+
+test('undefined partial gets base', t => {
+  t.deepEqual(unpartial(defaultConfig, undefined), defaultConfig)
+})
