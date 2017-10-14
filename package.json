@@ -32,7 +32,8 @@
     "url": "git+https://github.com/unional/unpartial.git"
   },
   "keywords": [
-    "typecript",
+    "typescript",
+    "javascript",
     "utility"
   ],
   "author": {
