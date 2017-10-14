@@ -64,10 +64,10 @@
     ]
   },
   "dependencies": {
-    "lodash.defaults": "^4.2.0"
+    "lodash.merge": "^4.6.0"
   },
   "devDependencies": {
-    "@types/lodash.defaults": "^4.2.3",
+    "@types/lodash.merge": "^4.6.3",
     "ava": "^0.22.0",
     "dependency-check": "^2.9.1",
     "nyc": "^11.2.1",
