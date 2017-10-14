@@ -8,26 +8,25 @@ interface Config {
 }
 const defaultConfig: Config = { require: { a: 1 } }
 
-test('undefined base returns undefined (in JS)', t => {
-  // to avoid unintended error
+test('undefined base will be ignored', t => {
   t.is(unpartial(undefined as any, undefined), undefined)
-  t.is(unpartial(undefined as any, null), undefined)
-  t.is(unpartial(undefined as any, {}), undefined)
+  t.is(unpartial(undefined as any, null), null)
+  t.deepEqual(unpartial(undefined as any, {}), {})
 
-  t.is(unpartial({}, undefined as any, undefined), undefined)
-  t.is(unpartial({}, undefined as any, null), undefined)
-  t.is(unpartial({}, undefined as any, {}), undefined)
+  t.is(unpartial({}, undefined, undefined), undefined)
+  t.is(unpartial({}, undefined as any, null), null)
+  t.deepEqual(unpartial({}, undefined as any, {}), {})
+  t.deepEqual(unpartial({ a: 1 }, undefined as any, { b: 2 }), { a: 1, b: 2 })
 })
 
-test('null base returns null (in JS)', t => {
-  // to avoid unintended error
-  t.is(unpartial(null as any, undefined), null)
+test('null base will be ignored', t => {
+  t.is(unpartial(null as any, undefined), undefined)
   t.is(unpartial(null as any, null), null)
-  t.is(unpartial(null as any, {}), null)
+  t.deepEqual(unpartial(null as any, {}), {})
 
-  t.is(unpartial({}, null as any, undefined), null)
+  t.is(unpartial({}, null as any, undefined), undefined)
   t.is(unpartial({}, null as any, null), null)
-  t.is(unpartial({}, null as any, {}), null)
+  t.deepEqual(unpartial({}, null as any, {}), {})
 })
 
 test('undefined superBase returns undefined (in JS)', t => {
@@ -78,8 +77,4 @@ test('unpartial a partial config with optional', t => {
 test('specify target interface explicitly', t => {
   const x = unpartial<Config>({ require: { a: 1 } }, {})
   t.is(x.require.a, 1)
-})
-
-test('undefined partial gets base', t => {
-  t.deepEqual(unpartial(defaultConfig, undefined), defaultConfig)
 })
