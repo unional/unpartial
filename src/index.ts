@@ -1,5 +1,3 @@
-import merge = require('lodash.merge')
-
 // `partial: Partial<T> | undefined` is better than `partial?: Partial<T>` in this case.
 // I want to make sure `partial` is passed in, while it can be optional, i.e. undefined, at caller context.
 export function unpartial<T extends object>(base: T, partial: Partial<T> | undefined): T
@@ -20,12 +18,12 @@ function unpartialTrio(superBase, base, partial) {
   if (base === undefined || base === null)
     return unpartial(superBase, partial)
 
-  return merge({}, superBase, base, partial)
+  return { ...superBase, ...base, ...partial }
 }
 
 function unpartialDuo(base, partial) {
   if (partial === undefined || partial === null)
     return partial
 
-  return merge({}, base, partial)
+  return { ...base, ...partial }
 }
