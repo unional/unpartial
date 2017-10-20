@@ -64,9 +64,7 @@
       "**/test/**/*"
     ]
   },
-  "dependencies": {
-    "lodash.merge": "^4.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/lodash.merge": "^4.6.3",
     "ava": "^0.22.0",
