@@ -8,24 +8,32 @@ interface Config {
 }
 const defaultConfig: Config = { require: { a: 1 } }
 
-test('undefined base will be ignored', t => {
+
+test('undefined partial will be ignored', t => {
   t.is(unpartialRecursively(undefined as any, undefined), undefined)
+  t.is(unpartialRecursively(null as any, undefined), null)
+  t.deepEqual(unpartialRecursively({ a: 1 }, undefined), { a: 1 })
+
+  t.is(unpartialRecursively(null as any, null as any, undefined), null)
+  t.deepEqual(unpartialRecursively({}, undefined, undefined), {})
+})
+
+test('undefined base will be ignored', t => {
   t.is(unpartialRecursively(undefined as any, null as any), null)
   t.deepEqual(unpartialRecursively(undefined as any, {}), {})
 
-  t.is(unpartialRecursively({}, undefined, undefined), undefined)
-  t.is(unpartialRecursively({}, undefined as any, null as any), null)
+  t.deepEqual(unpartialRecursively({}, undefined as any, null as any), {})
+  t.deepEqual(unpartialRecursively({}, undefined, undefined), {})
   t.deepEqual(unpartialRecursively({}, undefined as any, {}), {})
   t.deepEqual(unpartialRecursively({ a: 1 }, undefined as any, { b: 2 }), { a: 1, b: 2 })
 })
 
 test('null base will be ignored', t => {
-  t.is(unpartialRecursively(null as any, undefined), undefined)
   t.is(unpartialRecursively(null as any, null as any), null)
   t.deepEqual(unpartialRecursively(null as any, {}), {})
 
-  t.is(unpartialRecursively({}, null as any, undefined), undefined)
-  t.is(unpartialRecursively({}, null as any, null as any), null)
+  t.deepEqual(unpartialRecursively({}, null as any, undefined), {})
+  t.deepEqual(unpartialRecursively({}, null as any, null as any), {})
   t.deepEqual(unpartialRecursively({}, null as any, {}), {})
 })
 
