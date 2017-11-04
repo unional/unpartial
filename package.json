@@ -14,18 +14,18 @@
     "build-es2015": "tsc -p tsconfig.es2015.json",
     "build-es5": "tsc -p tsconfig.es5.json",
     "clean": "rimraf dist-es5 dist-es2015",
-    "dc": "npm run dependency-check",
-    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
-    "lint": "tslint -p tsconfig.json --type-check \"src/**/*.ts\"",
-    "prepare": "npm run build",
-    "postpublish": "git push",
-    "preversion": "git pull && npm run verify",
-    "verify": "npm run lint && npm run coverage && npm run dependency-check",
     "coverage": "nyc npm test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "dc": "npm run dependency-check",
+    "debug": "node scripts/debug.js",
+    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
+    "lint": "tslint -p tsconfig.json 'src/**/*.ts'",
+    "postpublish": "git push",
+    "prepublish": "npm run build",
+    "preversion": "git pull && npm run verify",
+    "verify": "npm run lint && npm run coverage && npm run dependency-check",
     "test": "npm run clean && tsc && ava",
-    "watch": "npm run clean && node scripts/watch.js",
-    "debug": "node scripts/debug.js"
+    "watch": "npm run clean && node scripts/watch.js"
   },
   "repository": {
     "type": "git",
@@ -71,10 +71,10 @@
     "@types/lodash.merge": "^4.6.3",
     "ava": "^0.23.0",
     "dependency-check": "^2.9.1",
-    "nyc": "^11.2.1",
+    "nyc": "^11.3.0",
     "rimraf": "^2.6.2",
-    "tslint": "^5.7.0",
+    "tslint": "^5.8.0",
     "tslint-config-unional": "^0.8.0",
-    "typescript": "^2.5.3"
+    "typescript": "^2.6.1"
   }
 }
