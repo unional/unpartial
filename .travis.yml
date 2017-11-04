@@ -9,7 +9,7 @@ node_js:
   - "stable"
 
 branches:
-  only
+  only:
     - "master"
 
 before_install:
