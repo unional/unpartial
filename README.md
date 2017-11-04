@@ -67,7 +67,7 @@ npm run watch
 [npm-url]: https://npmjs.org/package/unpartial
 [downloads-image]: https://img.shields.io/npm/dm/unpartial.svg?style=flat
 [downloads-url]: https://npmjs.org/package/unpartial
-[travis-image]: https://img.shields.io/travis/unional/unpartial.svg?style=flat
-[travis-url]: https://travis-ci.org/unional/unpartial
+[travis-image]: https://img.shields.io/travis/unional/unpartial/master.svg?style=flat
+[travis-url]: https://travis-ci.org/unional/unpartial?branch=master
 [coveralls-image]: https://coveralls.io/repos/github/unional/unpartial/badge.svg
 [coveralls-url]: https://coveralls.io/github/unional/unpartial
