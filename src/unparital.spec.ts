@@ -18,32 +18,32 @@ test('undefined partial will be ignored', t => {
 })
 
 test('undefined base will be ignored', t => {
-  t.is(unpartial(undefined as any, null), null)
+  t.is(unpartial(undefined as any, null as any), null)
   t.deepEqual(unpartial(undefined as any, {}), {})
 
-  t.deepEqual(unpartial({}, undefined as any, null), {})
+  t.deepEqual(unpartial({}, undefined as any, null as any), {})
   t.deepEqual(unpartial({}, undefined as any, {}), {})
   t.deepEqual(unpartial({ a: 1 }, undefined as any, { b: 2 }), { a: 1, b: 2 })
 })
 
 test('null base will be ignored', t => {
-  t.is(unpartial(null as any, null), null)
+  t.is(unpartial(null as any, null as any), null)
   t.deepEqual(unpartial(null as any, {}), {})
 
   t.deepEqual(unpartial({}, null as any, undefined), {})
-  t.deepEqual(unpartial({}, null as any, null), {})
+  t.deepEqual(unpartial({}, null as any, null as any), {})
   t.deepEqual(unpartial({}, null as any, {}), {})
 })
 
 test('undefined superBase returns undefined (in JS)', t => {
   // to avoid unintended error
   t.is(unpartial(undefined as any, undefined as any, undefined), undefined)
-  t.is(unpartial(undefined as any, undefined as any, null), undefined)
+  t.is(unpartial(undefined as any, undefined as any, null as any), undefined)
   t.is(unpartial(undefined as any, undefined as any, {}), undefined)
 })
 
 test('null superBase returns null (in JS)', t => {
-  t.is(unpartial(null as any, null as any, null), null)
+  t.is(unpartial(null as any, null as any, null as any), null)
   t.is(unpartial(null as any, null as any, {}), null)
 })
 
