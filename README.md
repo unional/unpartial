@@ -7,7 +7,7 @@
 [![Coverage Status][coveralls-image]][coveralls-url]
 [![Greenkeeper badge](https://badges.greenkeeper.io/unional/unpartial.svg)](https://greenkeeper.io/)
 
-Unpartial an interface
+Unpartial an interface.
 
 It is very common to define a config interface and `Partial<>` it in a function argument.
 When we received the arguement, we want to merge it with our default config before using it:
@@ -21,7 +21,7 @@ interface Config {
 }
 const defaultConfig = { require: { a: 1 } }
 
-function foo(givenConfig: Partial<Config>) {
+function foo(givenConfig?: Partial<Config>) {
   const config = unpartial(defaultConfig, givenConfig);
   // use config with type safety
 }
@@ -45,7 +45,7 @@ interface MyOption extends Option { ... }
 
 const myDefaultOption = { ... }
 
-function foo(givenOption: Partial<MyOption>) {
+function foo(givenOption?: Partial<MyOption>) {
   const option = unpartial(defaultOption, myDefaultOption, givenOption)
 }
 ```
@@ -67,7 +67,7 @@ npm run watch
 [npm-url]: https://npmjs.org/package/unpartial
 [downloads-image]: https://img.shields.io/npm/dm/unpartial.svg?style=flat
 [downloads-url]: https://npmjs.org/package/unpartial
-[travis-image]: https://img.shields.io/travis/unional/unpartial.svg?style=flat
-[travis-url]: https://travis-ci.org/unional/unpartial
+[travis-image]: https://img.shields.io/travis/unional/unpartial/master.svg?style=flat
+[travis-url]: https://travis-ci.org/unional/unpartial?branch=master
 [coveralls-image]: https://coveralls.io/repos/github/unional/unpartial/badge.svg
 [coveralls-url]: https://coveralls.io/github/unional/unpartial

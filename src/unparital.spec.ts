@@ -8,37 +8,42 @@ interface Config {
 }
 const defaultConfig: Config = { require: { a: 1 } }
 
-test('undefined base will be ignored', t => {
+test('undefined partial will be ignored', t => {
   t.is(unpartial(undefined as any, undefined), undefined)
-  t.is(unpartial(undefined as any, null), null)
+  t.is(unpartial(null as any, undefined), null)
+  t.deepEqual(unpartial({ a: 1 }, undefined), { a: 1 })
+
+  t.is(unpartial(null as any, null as any, undefined), null)
+  t.deepEqual(unpartial({}, undefined, undefined), {})
+})
+
+test('undefined base will be ignored', t => {
+  t.is(unpartial(undefined as any, null as any), null)
   t.deepEqual(unpartial(undefined as any, {}), {})
 
-  t.is(unpartial({}, undefined, undefined), undefined)
-  t.is(unpartial({}, undefined as any, null), null)
+  t.deepEqual(unpartial({}, undefined as any, null as any), {})
   t.deepEqual(unpartial({}, undefined as any, {}), {})
   t.deepEqual(unpartial({ a: 1 }, undefined as any, { b: 2 }), { a: 1, b: 2 })
 })
 
 test('null base will be ignored', t => {
-  t.is(unpartial(null as any, undefined), undefined)
-  t.is(unpartial(null as any, null), null)
+  t.is(unpartial(null as any, null as any), null)
   t.deepEqual(unpartial(null as any, {}), {})
 
-  t.is(unpartial({}, null as any, undefined), undefined)
-  t.is(unpartial({}, null as any, null), null)
+  t.deepEqual(unpartial({}, null as any, undefined), {})
+  t.deepEqual(unpartial({}, null as any, null as any), {})
   t.deepEqual(unpartial({}, null as any, {}), {})
 })
 
 test('undefined superBase returns undefined (in JS)', t => {
   // to avoid unintended error
   t.is(unpartial(undefined as any, undefined as any, undefined), undefined)
-  t.is(unpartial(undefined as any, undefined as any, null), undefined)
+  t.is(unpartial(undefined as any, undefined as any, null as any), undefined)
   t.is(unpartial(undefined as any, undefined as any, {}), undefined)
 })
 
 test('null superBase returns null (in JS)', t => {
-  t.is(unpartial(null as any, null as any, undefined), null)
-  t.is(unpartial(null as any, null as any, null), null)
+  t.is(unpartial(null as any, null as any, null as any), null)
   t.is(unpartial(null as any, null as any, {}), null)
 })
 
@@ -72,6 +77,16 @@ test('unpartial a partial config with optional', t => {
   t.is(config.require.a, 1)
   // `optional`is still optional
   t.is(config.optional!.a, 2)
+})
+
+test(`optional partial would not affact type`, t => {
+  const partial: Partial<Config> | undefined = undefined
+  const config = unpartial(defaultConfig, partial)
+
+  // `require` is not optional
+  t.is(config.require.a, 1)
+  // `optional`is still optional
+  t.is(config.optional, undefined)
 })
 
 test('specify target interface explicitly', t => {
