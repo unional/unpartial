@@ -22,7 +22,9 @@ function unpartialTrio(superBase, base, partial) {
 }
 
 function unpartialDuo(base, partial) {
-  if (partial === undefined || partial === null)
+  if (partial === undefined)
+    return base
+  if (base === null || base === undefined)
     return partial
 
   return { ...base, ...partial }
