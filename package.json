@@ -69,7 +69,7 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.3",
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "dependency-check": "^3.0.0",
     "nyc": "^11.3.0",
     "rimraf": "^2.6.2",
