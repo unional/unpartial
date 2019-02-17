@@ -19,9 +19,6 @@
     "lib",
     "libm"
   ],
-  "engines": {
-    "node": ">=8"
-  },
   "main": "lib/index.js",
   "module": "libm/index.js",
   "jsnext:main": "libm/index.js",
@@ -37,12 +34,15 @@
     "watch": "jest --watch",
     "watch:type": "tsc --watch"
   },
+  "dependencies": {
+    "lodash.merge": "^4.6.1"
+  },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.5",
     "@unional/devpkg-node": "^1.2.4",
     "assertron": "^6.1.0"
   },
-  "dependencies": {
-    "lodash.merge": "^4.6.1"
+  "engines": {
+    "node": ">=8"
   }
 }
