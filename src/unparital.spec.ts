@@ -1,11 +1,12 @@
 import t from 'assert';
 import { unpartial } from '.';
 
-interface Config {
+interface TestSubject {
   require: { a: number }
   optional?: { a: number }
 }
-const defaultConfig: Config = { require: { a: 1 } }
+
+const defaultConfig: TestSubject = { require: { a: 1 } }
 
 test('undefined partial will be ignored', () => {
   t.strictEqual(unpartial(undefined as any, undefined), undefined)
@@ -48,7 +49,7 @@ test('null superBase returns null (in JS)', () => {
 
 
 test('base and partial are not modified', () => {
-  const base = { require: { a: 1 }, optional: { a: 2 } } as Config
+  const base = { require: { a: 1 }, optional: { a: 2 } } as TestSubject
   const partial = { require: { a: 3 } }
   const actual = unpartial(base, partial)
 
@@ -59,7 +60,7 @@ test('base and partial are not modified', () => {
 
 test('superBase base and partial are not modified', () => {
   const superBase = { require: { a: 1 } }
-  const base = { require: { a: 2 }, optional: { a: 3 } } as Config
+  const base = { require: { a: 2 }, optional: { a: 3 } } as TestSubject
   const partial = { require: { a: 4 } }
   const actual = unpartial(superBase, base, partial)
 
@@ -79,7 +80,7 @@ test('unpartial a partial config with optional', () => {
 })
 
 test(`optional partial would not affact type`, () => {
-  const partial: Partial<Config> | undefined = undefined
+  const partial: Partial<TestSubject> | undefined = undefined
   const config = unpartial(defaultConfig, partial)
 
   // `require` is not optional
@@ -89,6 +90,6 @@ test(`optional partial would not affact type`, () => {
 })
 
 test('specify target interface explicitly', () => {
-  const x = unpartial<Config>({ require: { a: 1 } }, {})
+  const x = unpartial<TestSubject>({ require: { a: 1 } }, {})
   t.strictEqual(x.require.a, 1)
 })
