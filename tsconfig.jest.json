@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.es5.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "src",
+    "typings"
+  ]
+}

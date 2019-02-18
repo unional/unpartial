@@ -2,7 +2,7 @@
 // I want to make sure `partial` is passed in, while it can be optional, i.e. undefined, at caller context.
 export function unpartial<T extends object>(base: T, partial: Partial<T> | undefined): T
 export function unpartial<T extends object, R extends object = {}>(superBase: R, base: T | undefined, partial: Partial<T> | undefined): T & R
-export function unpartial(arg1, arg2, arg3?) {
+export function unpartial(arg1: any, arg2: any, arg3?: any) {
   if (arguments.length === 3) {
     return unpartialTrio(arg1, arg2, arg3)
   }
@@ -11,7 +11,7 @@ export function unpartial(arg1, arg2, arg3?) {
   }
 }
 
-function unpartialTrio(superBase, base, partial) {
+function unpartialTrio(superBase: any, base: any, partial: any) {
   if (superBase === undefined || superBase === null)
     return superBase
 
@@ -21,7 +21,7 @@ function unpartialTrio(superBase, base, partial) {
   return { ...superBase, ...base, ...partial }
 }
 
-function unpartialDuo(base, partial) {
+function unpartialDuo(base: any, partial: any) {
   if (partial === undefined)
     return base
   if (base === null || base === undefined)

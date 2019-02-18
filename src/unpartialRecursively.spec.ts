@@ -1,6 +1,5 @@
-import test from 'ava'
-
-import { unpartialRecursively } from './index'
+import t from 'assert';
+import { unpartialRecursively } from './index';
 
 interface Config {
   require: { a: number }
@@ -9,85 +8,85 @@ interface Config {
 const defaultConfig: Config = { require: { a: 1 } }
 
 
-test('undefined partial will be ignored', t => {
-  t.is(unpartialRecursively(undefined as any, undefined), undefined)
-  t.is(unpartialRecursively(null as any, undefined), null)
-  t.deepEqual(unpartialRecursively({ a: 1 }, undefined), { a: 1 })
+test('undefined partial will be ignored', () => {
+  t.strictEqual(unpartialRecursively(undefined as any, undefined), undefined)
+  t.strictEqual(unpartialRecursively(null as any, undefined), null)
+  t.deepStrictEqual(unpartialRecursively({ a: 1 }, undefined), { a: 1 })
 
-  t.is(unpartialRecursively(null as any, null as any, undefined), null)
-  t.deepEqual(unpartialRecursively({}, undefined, undefined), {})
+  t.strictEqual(unpartialRecursively(null as any, null as any, undefined), null)
+  t.deepStrictEqual(unpartialRecursively({}, undefined, undefined), {})
 })
 
-test('undefined base will be ignored', t => {
-  t.is(unpartialRecursively(undefined as any, null as any), null)
-  t.deepEqual(unpartialRecursively(undefined as any, {}), {})
+test('undefined base will be ignored', () => {
+  t.strictEqual(unpartialRecursively(undefined as any, null as any), null)
+  t.deepStrictEqual(unpartialRecursively(undefined as any, {}), {})
 
-  t.deepEqual(unpartialRecursively({}, undefined as any, null as any), {})
-  t.deepEqual(unpartialRecursively({}, undefined, undefined), {})
-  t.deepEqual(unpartialRecursively({}, undefined as any, {}), {})
-  t.deepEqual(unpartialRecursively({ a: 1 }, undefined as any, { b: 2 }), { a: 1, b: 2 })
+  t.deepStrictEqual(unpartialRecursively({}, undefined as any, null as any), {})
+  t.deepStrictEqual(unpartialRecursively({}, undefined, undefined), {})
+  t.deepStrictEqual(unpartialRecursively({}, undefined as any, {}), {})
+  t.deepStrictEqual(unpartialRecursively({ a: 1 }, undefined as any, { b: 2 }), { a: 1, b: 2 })
 })
 
-test('null base will be ignored', t => {
-  t.is(unpartialRecursively(null as any, null as any), null)
-  t.deepEqual(unpartialRecursively(null as any, {}), {})
+test('null base will be ignored', () => {
+  t.strictEqual(unpartialRecursively(null as any, null as any), null)
+  t.deepStrictEqual(unpartialRecursively(null as any, {}), {})
 
-  t.deepEqual(unpartialRecursively({}, null as any, undefined), {})
-  t.deepEqual(unpartialRecursively({}, null as any, null as any), {})
-  t.deepEqual(unpartialRecursively({}, null as any, {}), {})
+  t.deepStrictEqual(unpartialRecursively({}, null as any, undefined), {})
+  t.deepStrictEqual(unpartialRecursively({}, null as any, null as any), {})
+  t.deepStrictEqual(unpartialRecursively({}, null as any, {}), {})
 })
 
-test('undefined superBase returns undefined (in JS)', t => {
+test('undefined superBase returns undefined (in JS)', () => {
   // to avoid unintended error
-  t.is(unpartialRecursively(undefined as any, undefined as any, undefined), undefined)
-  t.is(unpartialRecursively(undefined as any, undefined as any, null as any), undefined)
-  t.is(unpartialRecursively(undefined as any, undefined as any, {}), undefined)
+  t.strictEqual(unpartialRecursively(undefined as any, undefined as any, undefined), undefined)
+  t.strictEqual(unpartialRecursively(undefined as any, undefined as any, null as any), undefined)
+  t.strictEqual(unpartialRecursively(undefined as any, undefined as any, {}), undefined)
 })
 
-test('null superBase returns null (in JS)', t => {
-  t.is(unpartialRecursively(null as any, null as any, undefined), null)
-  t.is(unpartialRecursively(null as any, null as any, null as any), null)
-  t.is(unpartialRecursively(null as any, null as any, {}), null)
+test('null superBase returns null (in JS)', () => {
+  t.strictEqual(unpartialRecursively(null as any, null as any, undefined), null)
+  t.strictEqual(unpartialRecursively(null as any, null as any, null as any), null)
+  t.strictEqual(unpartialRecursively(null as any, null as any, {}), null)
 })
 
 
-test('base and partial are not modified', t => {
+test('base and partial are not modified', () => {
   const base = { require: { a: 1 }, optional: { a: 2 } } as Config
   const partial = { require: { a: 3 } }
   const actual = unpartialRecursively(base, partial)
 
-  t.deepEqual(base, { require: { a: 1 }, optional: { a: 2 } })
-  t.deepEqual(partial, { require: { a: 3 } })
-  t.deepEqual(actual, { require: { a: 3 }, optional: { a: 2 } })
+  t.deepStrictEqual(base, { require: { a: 1 }, optional: { a: 2 } })
+  t.deepStrictEqual(partial, { require: { a: 3 } })
+  t.deepStrictEqual(actual, { require: { a: 3 }, optional: { a: 2 } })
 })
 
-test('superBase base and partial are not modified', t => {
+test('superBase base and partial are not modified', () => {
   const superBase = { require: { a: 1 } }
   const base = { require: { a: 2 }, optional: { a: 3 } } as Config
   const partial = { require: { a: 4 } }
   const actual = unpartialRecursively(superBase, base, partial)
 
-  t.deepEqual(superBase, { require: { a: 1 } })
-  t.deepEqual(base, { require: { a: 2 }, optional: { a: 3 } })
-  t.deepEqual(partial, { require: { a: 4 } })
-  t.deepEqual(actual, { require: { a: 4 }, optional: { a: 3 } })
+  t.deepStrictEqual(superBase, { require: { a: 1 } })
+  t.deepStrictEqual(base, { require: { a: 2 }, optional: { a: 3 } })
+  t.deepStrictEqual(partial, { require: { a: 4 } })
+  t.deepStrictEqual(actual, { require: { a: 4 }, optional: { a: 3 } })
 })
 
-test('partial config with optional', t => {
+test('partial config with optional', () => {
   const config = unpartialRecursively(defaultConfig, { optional: { a: 2 } })
 
   // `require` is not optional
-  t.is(config.require.a, 1)
+  t.strictEqual(config.require.a, 1)
   // `optional`is still optional
-  t.is(config.optional!.a, 2)
+  t.strictEqual(config.optional!.a, 2)
 })
 
-test('specify target interface explicitly', t => {
+test('specify target interface explicitly', () => {
   const x = unpartialRecursively<Config>({ require: { a: 1 } }, {})
-  t.is(x.require.a, 1)
+  t.strictEqual(x.require.a, 1)
 })
 
-test('will merge inner object', t => {
+test('will merge inner object', () => {
   interface DeepConfig {
     require: {
       a: {
@@ -100,5 +99,5 @@ test('will merge inner object', t => {
 
   const actual = unpartialRecursively<DeepConfig>({ require: { a: { b: 1 } } }, given)
 
-  t.deepEqual(actual, { require: { a: { b: 1, c: 'c' } } })
+  t.deepStrictEqual(actual, { require: { a: { b: 1, c: 'c' } } })
 })

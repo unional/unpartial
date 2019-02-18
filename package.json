@@ -1,80 +1,48 @@
 {
   "name": "unpartial",
-  "version": "0.4.1",
+  "version": "0.0.0-development",
   "description": "Unpartial a partialed object",
-  "main": "dist-es5/index.js",
-  "module": "dist-es2015/index.js",
-  "typings": "dist-es5/index.d.ts",
-  "files": [
-    "dist-es5",
-    "dist-es2015"
-  ],
-  "scripts": {
-    "build": "npm run clean && npm run build-es5 && npm run build-es2015",
-    "build-es2015": "tsc -p tsconfig.es2015.json",
-    "build-es5": "tsc -p tsconfig.es5.json",
-    "clean": "rimraf dist-es5 dist-es2015",
-    "coverage": "nyc npm test",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "dc": "npm run dependency-check",
-    "debug": "node scripts/debug.js",
-    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
-    "lint": "tslint -p tsconfig.json 'src/**/*.ts'",
-    "postpublish": "git push",
-    "prepare": "npm run build",
-    "preversion": "git pull && npm run verify",
-    "verify": "npm run lint && npm run coverage && npm run dependency-check",
-    "test": "npm run clean && tsc && ava",
-    "watch": "npm run clean && node scripts/watch.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/unional/unpartial.git"
-  },
-  "keywords": [
-    "typescript",
-    "javascript",
-    "utility"
-  ],
-  "author": {
-    "name": "Homa Wong",
-    "email": "homawong@gmail.com",
-    "url": "https://github.com/unional"
-  },
-  "license": "MIT",
+  "homepage": "https://github.com/unional/unpartial",
   "bugs": {
     "url": "https://github.com/unional/unpartial/issues"
   },
-  "homepage": "https://github.com/unional/unpartial#readme",
-  "ava": {
-    "files": [
-      "dist-es5/**/*.spec.js"
-    ],
-    "source": [
-      "scripts/*.js",
-      "dist-es5/**/*.js",
-      "*.json"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unional/unpartial.git"
   },
-  "nyc": {
-    "exclude": [
-      "scripts",
-      "**/*.spec.*",
-      "**/fixtures/**/*",
-      "**/test/**/*"
-    ]
+  "license": "MIT",
+  "author": {
+    "name": "Homa Wong (unional)",
+    "email": "homawong@gmail.com"
+  },
+  "files": [
+    "lib",
+    "libm"
+  ],
+  "main": "lib/index.js",
+  "module": "libm/index.js",
+  "jsnext:main": "libm/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.es5.json && tsc -p tsconfig.esnext.json",
+    "clean": "rimraf lib libm",
+    "dc": "npm run dependency-check",
+    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --reporters=default",
+    "verify": "npm run lint && npm run build && npm run dependency-check && jest --coverage --reporters=default",
+    "watch": "jest --watch",
+    "watch:type": "tsc --watch"
   },
   "dependencies": {
-    "lodash.merge": "^4.6.0"
+    "lodash.merge": "^4.6.1"
   },
   "devDependencies": {
-    "@types/lodash.merge": "^4.6.3",
-    "ava": "^0.25.0",
-    "dependency-check": "^3.0.0",
-    "nyc": "^11.3.0",
-    "rimraf": "^2.6.2",
-    "tslint": "^5.8.0",
-    "tslint-config-unional": "^0.10.0",
-    "typescript": "^2.6.1"
+    "@types/lodash.merge": "^4.6.5",
+    "@unional/devpkg-node": "^1.2.4",
+    "assertron": "^6.1.0"
+  },
+  "engines": {
+    "node": ">=6"
   }
 }
