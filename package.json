@@ -40,7 +40,7 @@
   "devDependencies": {
     "@types/lodash.merge": "^4.6.5",
     "@unional/devpkg-node": "^1.2.4",
-    "assertron": "^6.1.0"
+    "assertron": "^7.0.0"
   },
   "engines": {
     "node": ">=6"
