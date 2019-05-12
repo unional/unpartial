@@ -32,7 +32,7 @@
     "lint": "tslint -p tsconfig.json",
     "size": "size-limit",
     "test": "jest --reporters=default",
-    "verify": "npm run lint && npm run build && npm run dependency-check && npm run size && jest --coverage --reporters=default",
+    "verify": "npm run lint && npm run build && npm run dependency-check && jest --coverage --reporters=default",
     "watch": "jest --watch",
     "watch:type": "tsc --watch"
   },
