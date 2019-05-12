@@ -16,16 +16,12 @@ workflows:
       - node6:
           requires:
             - node-latest
-      - size-limit:
-          requires:
-            - node-latest
       - release:
           filters:
             branches:
               only: master
           requires:
             - node-latest
-            - size-limit
             - node10
             - node9
             - node8
@@ -65,14 +61,6 @@ jobs:
       - run: npx codecov
       - store_test_results:
           path: .reports/junit
-  size-limit:
-    docker:
-      - image: circleci/node:latest-browsers
-    steps:
-      - checkout
-      - attach_workspace:
-          at: '.'
-      - run: npm run size
   node10:
     docker:
       - image: 'circleci/node:9'
