@@ -38,7 +38,8 @@
   },
   "size-limit": [
     {
-      "limit": "5 KB"
+      "limit": "5 KB",
+      "path": "lib/index.js"
     }
   ],
   "dependencies": {
