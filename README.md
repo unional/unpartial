@@ -14,9 +14,9 @@
 [![Visual Studio Code][vscode-image]][vscode-url]
 [![Wallaby.js][wallaby-image]][wallaby-url]
 
-Unpartial an interface.
+Unpartial an type.
 
-It is very common to define a config interface and `Partial<>` it in a function argument.
+It is very common to define a config type and `Partial<>` it in a function argument.
 When we received the arguement, we want to merge it with our default config before using it:
 
 ```ts
@@ -34,7 +34,7 @@ function foo(givenConfig?: Partial<Config>) {
 }
 ```
 
-Code complete is avaiable as you type:
+Code completion is avaiable as you type:
 
 ```ts
 const config = unpartial(defaultConfig, { /* code completion here */});
@@ -56,6 +56,15 @@ function foo(givenOption?: Partial<MyOption>) {
   const option = unpartial(defaultOption, myDefaultOption, givenOption)
 }
 ```
+
+There are 3 more functions available in this library:
+
+- `unpartialRecursively()`: `unpartial()` deeply.
+- `required()`: an improved version of `unpartial()` with better type management.
+- `requiredDeep()`: an improved version of `unpartialRecursively()` with better type management.
+
+The `required()` and `requiredDeep()` function is also exposed in [`type-plus`](https://github.com/unional/type-plus).
+Feel free to check it out.
 
 ## Contribute
 

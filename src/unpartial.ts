@@ -1,31 +1,13 @@
-// `partial: Partial<T> | undefined` is better than `partial?: Partial<T>` in this case.
-// I want to make sure `partial` is passed in, while it can be optional, i.e. undefined, at caller context.
-export function unpartial<T extends object>(base: T, partial: Partial<T> | undefined): T
-export function unpartial<T extends object, R extends object = {}>(superBase: R, base: T | undefined, partial: Partial<T> | undefined): T & R
+import { required, requiredDeep } from './required';
+
+export function unpartial<T extends Record<string | number | symbol, any>>(base: T, partial: Partial<T> | undefined): T
+export function unpartial<T extends Record<string | number | symbol, any>, R extends Record<string | number | symbol, any> = Record<string | number | symbol, any>>(superBase: R, base: T | undefined, partial: Partial<T> | undefined): T & R
 export function unpartial(arg1: any, arg2: any, arg3?: any) {
-  if (arguments.length === 3) {
-    return unpartialTrio(arg1, arg2, arg3)
-  }
-  else {
-    return unpartialDuo(arg1, arg2)
-  }
+  return required(arg1, arg2, arg3)
 }
 
-function unpartialTrio(superBase: any, base: any, partial: any) {
-  if (superBase === undefined || superBase === null)
-    return superBase
-
-  if (base === undefined || base === null)
-    return unpartial(superBase, partial)
-
-  return { ...superBase, ...base, ...partial }
-}
-
-function unpartialDuo(base: any, partial: any) {
-  if (partial === undefined)
-    return base
-  if (base === null || base === undefined)
-    return partial
-
-  return { ...base, ...partial }
+export function unpartialRecursively<T extends object>(base: T, partial: object | undefined): T
+export function unpartialRecursively<T extends object, R extends object = {}>(superBase: R, base: T | undefined, partial: object | undefined): T & R
+export function unpartialRecursively(arg1: any, arg2: any, arg3?: any) {
+  return requiredDeep(arg1, arg2, arg3)
 }

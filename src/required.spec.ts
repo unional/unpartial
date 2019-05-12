@@ -1,4 +1,5 @@
 import { required } from './required';
+
 test('none of the inputs are modified', () => {
   const source1 = { a: 1 }
   const source2 = { b: 2 }
@@ -39,7 +40,7 @@ type Source1 = {
   b: number,
   c: { d: boolean }
   e?: string
-}
+};
 
 test('can access types in source1', () => {
   const source1: Partial<Source1> = { a: 'a', b: 2, c: { d: true } }
@@ -57,7 +58,7 @@ type Source2 = {
   q: number,
   r: { s: boolean }
   t?: string
-}
+};
 
 test('can access types in source2', () => {
   const source1: Partial<Source1> = { a: 'a', b: 2, c: { d: true } }
@@ -78,7 +79,7 @@ type Source3 = {
   u?: string
 }
 
-test('can access types in source2', () => {
+test('can access types in source3', () => {
   const source1: Partial<Source1> = { a: 'a', b: 2, c: { d: true } }
   const source2: Partial<Source2> = { p: 'p', q: 2, r: { s: true } }
   const source3: Partial<Source3> = { w: 'w', x: 2, y: { z: true } }
