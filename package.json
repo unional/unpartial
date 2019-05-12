@@ -36,11 +36,6 @@
     "watch": "jest --watch",
     "watch:type": "tsc --watch"
   },
-  "size-limit": [
-    {
-      "limit": "5 KB"
-    }
-  ],
   "dependencies": {
     "deepmerge": "^3.2.0"
   },
@@ -51,5 +46,10 @@
   },
   "engines": {
     "node": ">=6"
-  }
+  },
+  "size-limit": [
+    {
+      "limit": "5 KB"
+    }
+  ]
 }
