@@ -36,11 +36,9 @@
     "watch": "jest --watch",
     "watch:type": "tsc --watch"
   },
-  "dependencies": {
-    "deepmerge": "^3.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@unional/devpkg-node": "^1.2.5",
+    "@unional/devpkg-node": "^1.3.0",
     "assertron": "^7.0.1",
     "size-limit": "^1.3.1"
   },
