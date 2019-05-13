@@ -112,15 +112,29 @@ describe('requiredDeep()', () => {
       }
     }
 
-    const foo = new Foo()
-    const actual = requiredDeep({ a: {} }, undefined, { a: { b: foo } })
+    class Boo extends Foo {
+      d() { return this.a + 1 }
+    }
+    const boo = new Boo()
+    const actual = requiredDeep({ a: { b: { x: 1 } } }, undefined, { a: { b: boo } })
     expect(actual).toEqual({
       a: {
         b: {
-          a: 1
+          a: 1,
+          x: 1,
+          c: boo.c,
+          d: boo.d
         }
       }
     })
-    expect(actual.a.b.c).toBe(foo.c)
+  })
+
+  test('override array', () => {
+    const actual = requiredDeep({ a: [1] }, { a: [2] })
+    expect(actual).toEqual({ a: [2] })
+  })
+
+  test('value add to array', () => {
+    expect(requiredDeep({ a: [1] }, { a: 2 })).toEqual({ a: [1, 2] })
   })
 })
