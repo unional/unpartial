@@ -137,4 +137,8 @@ describe('requiredDeep()', () => {
   test('value add to array', () => {
     expect(requiredDeep({ a: [1] }, { a: 2 })).toEqual({ a: [1, 2] })
   })
+
+  test('empty string overrides', () => {
+    expect(requiredDeep({ a: { b: 'b' } }, { a: { b: '' } })).toEqual({ a: { b: '' } })
+  })
 })
