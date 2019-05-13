@@ -141,4 +141,8 @@ describe('requiredDeep()', () => {
   test('empty string overrides', () => {
     expect(requiredDeep({ a: { b: 'b' } }, { a: { b: '' } })).toEqual({ a: { b: '' } })
   })
+
+  test('undefined property not added to array', () => {
+    expect(requiredDeep({ a: [1] }, {})).toEqual({ a: [1] })
+  })
 })

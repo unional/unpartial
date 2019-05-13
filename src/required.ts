@@ -23,7 +23,9 @@ function merge(entries: any[], reducer: (result: any, entry: any) => any) {
 function deepmerge(source1: any, source2: any): any {
   if (typeof source1 !== 'object' || source1 === null) return source2 !== undefined ? source2 : source1
   if (Array.isArray(source1)) {
-    return Array.isArray(source2) ? source2 : [...source1, source2]
+    if (Array.isArray(source2)) return source2
+    if (source2 === undefined) return [...source1]
+    return [...source1, source2]
   }
 
   return getAllKeys(source1).concat(getAllKeys(source2)).reduce((p, k) => {
