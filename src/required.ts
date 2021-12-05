@@ -22,7 +22,7 @@ function merge(
 ) {
   if (entries[0] === undefined || entries[0] === null) return entries[0]
 
-  return entries.filter(x => !!x).reduce(reducer, {} as any)
+  return entries.filter(x => !!x).reduce(reducer, {})
 }
 
 function deepmerge(

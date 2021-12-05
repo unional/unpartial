@@ -27,12 +27,12 @@
   "scripts": {
     "build": "tsc -p tsconfig.es5.json && tsc -p tsconfig.esnext.json",
     "clean": "rimraf lib libm",
-    "dc": "npm run dependency-check",
+    "dc": "yarn dependency-check",
     "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
-    "lint": "tslint -p tsconfig.json",
+    "lint": "eslint --ext=ts,js .",
     "size": "size-limit",
     "test": "jest --reporters=default",
-    "verify": "npm run lint && npm run build && npm run dependency-check && jest --coverage --reporters=default",
+    "verify": "yarn lint && yarn build && yarn dependency-check && jest --coverage --reporters=default",
     "watch": "jest --watch",
     "watch:type": "tsc --watch"
   },
