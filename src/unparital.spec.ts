@@ -1,9 +1,10 @@
-import t from 'assert';
-import { unpartial, unpartialRecursively } from '.';
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+import t from 'assert'
+import { unpartial, unpartialRecursively } from '.'
 
 describe('unpartial()', () => {
   interface TestSubject {
-    require: { a: number }
+    require: { a: number },
     optional?: { a: number }
   }
 
@@ -61,7 +62,7 @@ describe('unpartial()', () => {
     t.strictEqual(config.optional!.a, 2)
   })
 
-  test(`optional partial would not affact type`, () => {
+  test(`optional partial would not affect type`, () => {
     const partial: Partial<TestSubject> | undefined = undefined
     const config = unpartial(defaultConfig, partial)
 
@@ -79,7 +80,7 @@ describe('unpartial()', () => {
 
 describe('unpartialRecursively()', () => {
   interface Config {
-    require: { a: number }
+    require: { a: number },
     optional?: { a: number }
   }
   const defaultConfig: Config = { require: { a: 1 } }

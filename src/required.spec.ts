@@ -1,4 +1,5 @@
-import { required, requiredDeep } from './required';
+import { assertType } from 'type-plus'
+import { required, requiredDeep } from '.'
 
 describe('required()', () => {
   test('none of the inputs are modified', () => {
@@ -15,31 +16,35 @@ describe('required()', () => {
   test('source2 can be undefined', () => {
     const actual = required({ a: 1 }, undefined)
 
+    assertType<{ a: number }>(actual)
     expect(actual).toEqual({ a: 1 })
   })
 
   test('source2 can be null', () => {
     const actual = required({ a: 1 }, null)
 
+    assertType<{ a: number }>(actual)
     expect(actual).toEqual({ a: 1 })
   })
 
   test('source3 can be undefined', () => {
     const actual = required({ a: 1 }, undefined, undefined)
 
+    assertType<{ a: number }>(actual)
     expect(actual).toEqual({ a: 1 })
   })
 
   test('source3 can be null', () => {
     const actual = required({ a: 1 }, null, null)
 
+    assertType<{ a: number }>(actual)
     expect(actual).toEqual({ a: 1 })
   })
 
   type Source1 = {
     a: string,
     b: number,
-    c: { d: boolean }
+    c: { d: boolean },
     e?: string
   };
 
@@ -48,6 +53,7 @@ describe('required()', () => {
 
     const actual = required(source1, undefined)
 
+    assertType<Source1>(actual)
     expect(actual.a).toEqual('a')
     expect(actual.b).toEqual(2)
     expect(actual.c.d).toEqual(true)
@@ -57,7 +63,7 @@ describe('required()', () => {
   type Source2 = {
     p: string,
     q: number,
-    r: { s: boolean }
+    r: { s: boolean },
     t?: string
   };
 
@@ -67,6 +73,7 @@ describe('required()', () => {
 
     const actual = required(source1, source2)
 
+    assertType<Source1 & Source2>(actual)
     expect(actual.p).toEqual('p')
     expect(actual.q).toEqual(2)
     expect(actual.r.s).toEqual(true)
@@ -76,7 +83,7 @@ describe('required()', () => {
   type Source3 = {
     w: string,
     x: number,
-    y: { z: boolean }
+    y: { z: boolean },
     u?: string
   };
 
@@ -87,6 +94,7 @@ describe('required()', () => {
 
     const actual = required(source1, source2, source3)
 
+    assertType<Source1 & Source2 & Source3>(actual)
     expect(actual.w).toEqual('w')
     expect(actual.x).toEqual(2)
     expect(actual.y.z).toEqual(true)
@@ -96,6 +104,7 @@ describe('required()', () => {
   test('can explicitly specify target type', () => {
     const actual = required<Source1>({ a: 'a' }, { b: 2 }, { c: { d: true } })
 
+    assertType<Source1>(actual)
     expect(actual.a).toEqual('a')
     expect(actual.b).toEqual(2)
     expect(actual.c.d).toEqual(true)
@@ -107,13 +116,13 @@ describe('requiredDeep()', () => {
   test('merge class instance', () => {
     class Foo {
       a = 1
-      c() {
-        return this.a
+      c(this: void) {
+        return 3
       }
     }
 
     class Boo extends Foo {
-      d() { return this.a + 1 }
+      d(this: void) { return 4 }
     }
     const boo = new Boo()
     const actual = requiredDeep({ a: { b: { x: 1 } } }, undefined, { a: { b: boo } })
