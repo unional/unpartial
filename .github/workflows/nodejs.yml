@@ -16,7 +16,6 @@ jobs:
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: cache yarn global cache
-        if: runner.os != 'macos-latest'
         uses: actions/cache@v1
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -98,10 +97,6 @@ jobs:
       - name: setup yarn-cache
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
       - name: cache yarn global cache
         if: runner.os != 'macos-latest'
         uses: actions/cache@v1
