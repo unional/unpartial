@@ -83,7 +83,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: codacy
-        if: github.repository == 'unional/type-plus' && matrix.node-version == 16 && matrix.os == 'ubuntu-latest'
+        if: github.repository == 'unional/unpartial' && matrix.node-version == 16 && matrix.os == 'ubuntu-latest'
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
