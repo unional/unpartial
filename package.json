@@ -37,6 +37,11 @@
     "watch": "jest --watch",
     "watch:type": "tsc --watch"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -50,7 +55,6 @@
     "@size-limit/preset-small-lib": "^7.0.3",
     "@types/jest": "^27.0.3",
     "assertron": "^7.0.1",
-    "codecov": "^3.8.3",
     "dependency-check": "^4.1.0",
     "eslint": "^8.4.0",
     "eslint-plugin-harmony": "^6.0.0",
