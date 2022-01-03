@@ -11,12 +11,13 @@
     "noUnusedParameters": false,
     "removeComments": false,
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    "useDefineForClassFields": true
   },
   "include": [
     "typings"
   ],
   "files": [
-    "src/index.ts"
+    "ts/index.ts"
   ]
 }

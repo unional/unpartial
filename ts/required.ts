@@ -48,7 +48,6 @@ function getAllKeys(subject: any, internal = false): string[] {
   if (typeof subject !== 'object') return []
   const propertyNames = Object.getOwnPropertyNames(subject)
   const keys = internal ? propertyNames.filter(n => n !== 'constructor') : propertyNames
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const proto = Object.getPrototypeOf(subject)
   return proto !== Object.prototype ? keys.concat(getAllKeys(proto, true)) : keys
 }
