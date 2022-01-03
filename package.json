@@ -25,19 +25,22 @@
     "ts"
   ],
   "scripts": {
-    "build": "yarn build:cjs && yarn build:esm",
+    "build": "run-p build:cjs build:esm",
+    "build+dependency-check": "run-s build dependency-check",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "clean": "rimraf cjs esm lib libm",
     "coverage": "jest --coverage",
-    "dependency-check": "dependency-check . --unused --no-dev && dependency-check . --missing --no-dev",
+    "dependency-check": "run-p dependency-check:unused dependency-check:missing",
+    "dependency-check:unused": "dependency-check . --unused --no-dev",
+    "dependency-check:missing": "dependency-check . --missing --no-dev",
     "lint": "eslint --ext=ts,js .",
-    "size": "size-limit",
+    "release": "npx semantic-release",
+    "size-limit": "size-limit",
     "test": "jest",
-    "verify": "yarn lint && yarn build && yarn dependency-check && jest --coverage --reporters=default",
+    "verify": "run-p build+dependency-check lint size-limit coverage",
     "watch": "jest --watch",
-    "watch:type": "tsc --watch",
-    "release": "npx semantic-release"
+    "watch:type": "tsc --watch"
   },
   "husky": {
     "hooks": {
@@ -69,6 +72,7 @@
     "jest-watch-suspend": "^1.1.2",
     "jest-watch-toggle-config": "^2.0.1",
     "jest-watch-typeahead": "^1.0.0",
+    "npm-run-all": "^4.1.5",
     "size-limit": "^7.0.5",
     "type-plus": "^3.14.0",
     "typescript": "^4.5.4"
