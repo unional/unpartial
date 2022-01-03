@@ -36,7 +36,8 @@
     "test": "jest",
     "verify": "yarn lint && yarn build && yarn dependency-check && jest --coverage --reporters=default",
     "watch": "jest --watch",
-    "watch:type": "tsc --watch"
+    "watch:type": "tsc --watch",
+    "release": "npx semantic-release"
   },
   "husky": {
     "hooks": {
