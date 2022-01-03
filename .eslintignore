@@ -1,5 +1,7 @@
-node_modules
+cjs
 dist*
+esm
 lib
 libm
+node_modules
 out*
