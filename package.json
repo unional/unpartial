@@ -34,6 +34,7 @@
     "dependency-check:unused": "dependency-check . --unused --no-dev",
     "dependency-check:missing": "dependency-check . --missing --no-dev",
     "lint": "eslint --ext=ts,js .",
+    "prepare": "husky install",
     "release": "npx semantic-release",
     "size-limit": "size-limit",
     "test": "jest",
@@ -41,11 +42,6 @@
     "verify:build": "npm-run-all clean build --parallel dependency-check size-limit",
     "watch": "jest --watch",
     "watch:type": "tsc --watch"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "dependencies": {},
   "devDependencies": {
@@ -59,6 +55,8 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@size-limit/preset-small-lib": "^7.0.5",
     "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
     "assertron": "^9.0.0",
     "dependency-check": "^4.1.0",
     "eslint": "^8.6.0",
@@ -84,5 +82,6 @@
     {
       "limit": "5 KB"
     }
-  ]
+  ],
+  "packageManager": "yarn@1.22.18"
 }
