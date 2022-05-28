@@ -7561,7 +7561,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unpartial@^0.6.1, unpartial@^0.6.4, unpartial@workspace:.":
+"unpartial@npm:^0.6.1, unpartial@npm:^0.6.4":
+  version: 0.6.4
+  resolution: "unpartial@npm:0.6.4"
+  checksum: 34a9d765d97f54ec36036c8d0bd8087874e2b7c4ff2b71a3168687b867d4db2f3a7dd7bc15b50371df9488d280723a1ba8f726b1fdfb5537d293785eee647ec2
+  languageName: node
+  linkType: hard
+
+"unpartial@workspace:.":
   version: 0.0.0-use.local
   resolution: "unpartial@workspace:."
   dependencies:
