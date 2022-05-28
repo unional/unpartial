@@ -17,6 +17,7 @@
     "codeql",
     "jsnext",
     "libm",
+    "pinst",
     "snyk",
     "unpartial"
   ]

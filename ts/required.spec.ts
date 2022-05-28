@@ -1,5 +1,5 @@
 import { assertType } from 'type-plus'
-import { required, requiredDeep } from '.'
+import { required, requiredDeep } from './index.js'
 
 describe('required()', () => {
   test('none of the inputs are modified', () => {

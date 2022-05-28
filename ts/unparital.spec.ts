@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import t from 'assert'
-import { unpartial, unpartialRecursively } from '.'
+import { unpartial, unpartialRecursively } from './index.js'
 
 describe('unpartial()', () => {
   interface TestSubject {
@@ -154,7 +154,7 @@ describe('unpartialRecursively()', () => {
         }
       }
     }
-    const given = { require: { a: { c: 'c' } } } as DeepConfig;
+    const given = { require: { a: { c: 'c' } } } as DeepConfig
 
     const actual = unpartialRecursively<DeepConfig>({ require: { a: { b: 1 } } }, given)
 
