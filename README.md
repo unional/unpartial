@@ -3,13 +3,10 @@
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
 
-[![Github NodeJS][github-nodejs]][github-action-url]
+[![GitHub NodeJS][github-nodejs]][github-action-url]
 [![Codecov][codecov-image]][codecov-url]
 
-[![Semantic Release][semantic-release-image]][semantic-release-url]
-
 [![Visual Studio Code][vscode-image]][vscode-url]
-[![Wallaby.js][wallaby-image]][wallaby-url]
 
 Unpartial a type.
 
@@ -88,9 +85,5 @@ git push
 [github-action-url]: https://github.com/unional/unpartial/actions
 [npm-image]: https://img.shields.io/npm/v/unpartial.svg?style=flat
 [npm-url]: https://npmjs.org/package/unpartial
-[semantic-release-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-release-url]: https://github.com/semantic-release/semantic-release
 [vscode-image]: https://img.shields.io/badge/vscode-ready-green.svg
 [vscode-url]: https://code.visualstudio.com/
-[wallaby-image]: https://img.shields.io/badge/wallaby.js-configured-green.svg
-[wallaby-url]: https://wallabyjs.com
