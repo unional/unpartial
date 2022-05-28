@@ -1,4 +1,4 @@
-import { required, requiredDeep } from './required';
+import { required, requiredDeep } from './required.js'
 
 export function unpartial<
   T extends Record<string | number | symbol, any>

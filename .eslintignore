@@ -1,4 +1,5 @@
 cjs
+coverage
 dist*
 esm
 lib
