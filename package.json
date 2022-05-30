@@ -1,6 +1,6 @@
 {
   "name": "unpartial",
-  "version": "0.7.0",
+  "version": "0.0.0-development",
   "description": "Unpartial a partialed object",
   "homepage": "https://github.com/unional/unpartial",
   "bugs": {
@@ -34,7 +34,6 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "clean": "rimraf coverage cjs esm lib libm",
     "coverage": "jest --coverage",
-    "cs": "changeset",
     "depcheck": "depcheck",
     "lint": "eslint --ext=ts,js .",
     "postinstall": "husky install",
@@ -49,7 +48,6 @@
     "watch:type": "tsc --watch"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",
     "@size-limit/preset-small-lib": "^7.0.8",
