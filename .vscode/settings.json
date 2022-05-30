@@ -1,5 +1,13 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "codeql",
+    "infile",
+    "jsnext",
+    "libm",
+    "pinst",
+    "snyk",
+    "unpartial"
+  ],
   "json.schemas": [
     {
       "fileMatch": [
@@ -9,17 +17,9 @@
     }
   ],
   "search.exclude": {
-    "dist-es5": true,
+    "**/bower_components": true,
     "**/node_modules": true,
-    "**/bower_components": true
+    "dist-es5": true
   },
-  "cSpell.words": [
-    "codeql",
-    "infile",
-    "jsnext",
-    "libm",
-    "pinst",
-    "snyk",
-    "unpartial"
-  ]
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
