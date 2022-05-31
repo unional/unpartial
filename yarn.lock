@@ -1424,7 +1424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:^9.0.0":
+"@semantic-release/npm@npm:^9.0.0, @semantic-release/npm@npm:^9.0.1":
   version: 9.0.1
   resolution: "@semantic-release/npm@npm:9.0.1"
   dependencies:
@@ -8501,6 +8501,7 @@ __metadata:
     "@semantic-release/changelog": ^6.0.1
     "@semantic-release/git": ^10.0.1
     "@semantic-release/github": ^8.0.4
+    "@semantic-release/npm": ^9.0.1
     "@size-limit/preset-small-lib": ^7.0.8
     "@types/jest": ^27.5.1
     "@typescript-eslint/eslint-plugin": ^5.26.0
