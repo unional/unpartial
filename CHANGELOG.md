@@ -1,3 +1,10 @@
+## [0.7.3](https://github.com/unional/unpartial/compare/v0.7.2...v0.7.3) (2022-05-31)
+
+
+### Bug Fixes
+
+* add sem-rel npm ([19899d1](https://github.com/unional/unpartial/commit/19899d1294ef2e19c09ef4c61789d7ce9929aded))
+
 ## [0.7.2](https://github.com/unional/unpartial/compare/v0.7.1...v0.7.2) (2022-05-31)
 
 
