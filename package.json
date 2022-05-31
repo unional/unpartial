@@ -78,6 +78,10 @@
   },
   "size-limit": [
     {
+      "path": "./cjs/index.js",
+      "limit": "5 KB"
+    },
+    {
       "path": "./esm/index.js",
       "limit": "5 KB"
     }
