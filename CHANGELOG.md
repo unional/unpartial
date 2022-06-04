@@ -1,3 +1,10 @@
+## [0.7.4](https://github.com/unional/unpartial/compare/v0.7.3...v0.7.4) (2022-06-04)
+
+
+### Bug Fixes
+
+* mark sideEffects false ([8ab6c12](https://github.com/unional/unpartial/commit/8ab6c1240c70711c5475a699b0561bfc791804c1))
+
 ## [0.7.3](https://github.com/unional/unpartial/compare/v0.7.2...v0.7.3) (2022-05-31)
 
 
