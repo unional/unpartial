@@ -15,6 +15,7 @@
     "name": "Homa Wong (unional)",
     "email": "homawong@gmail.com"
   },
+  "sideEffects": false,
   "type": "module",
   "exports": {
     "import": "./esm/index.js",
@@ -32,7 +33,7 @@
     "build": "run-p build:cjs build:esm",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "clean": "rimraf coverage cjs esm lib libm",
+    "clean": "rimraf coverage cjs esm lib libm || true",
     "coverage": "jest --coverage",
     "depcheck": "depcheck",
     "lint": "eslint --ext=ts,js .",

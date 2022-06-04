@@ -1,8 +1,6 @@
-cjs
-coverage
-dist*
-esm
-lib
-libm
 node_modules
-out*
+/dist
+/lib
+/out
+/cjs
+/esm
