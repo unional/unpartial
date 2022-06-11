@@ -33,7 +33,7 @@
     "build": "run-p build:cjs build:esm",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "clean": "rimraf coverage cjs esm lib libm || true",
+    "clean": "rimraf coverage cjs esm lib libm && mkdir cjs && echo '{\"type\":\"commonjs\"}' > cjs/package.json || true",
     "coverage": "jest --coverage",
     "depcheck": "depcheck",
     "lint": "eslint --ext=ts,js .",
