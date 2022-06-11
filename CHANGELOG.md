@@ -1,3 +1,10 @@
+## [0.7.5](https://github.com/unional/unpartial/compare/v0.7.4...v0.7.5) (2022-06-11)
+
+
+### Bug Fixes
+
+* add cjs/package.json ([#84](https://github.com/unional/unpartial/issues/84)) ([4e8dcae](https://github.com/unional/unpartial/commit/4e8dcae6e2755fd924d739dae9915a06baf2f1ff))
+
 ## [0.7.4](https://github.com/unional/unpartial/compare/v0.7.3...v0.7.4) (2022-06-04)
 
 
