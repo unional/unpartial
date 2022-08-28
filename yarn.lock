@@ -1966,7 +1966,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.4.1, acorn@npm:^8.7.0, acorn@npm:^8.7.1":
+"acorn@npm:^8.4.1, acorn@npm:^8.7.1":
   version: 8.7.1
   resolution: "acorn@npm:8.7.1"
   bin:
@@ -2876,6 +2876,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cross-env@npm:^7.0.3":
+  version: 7.0.3
+  resolution: "cross-env@npm:7.0.3"
+  dependencies:
+    cross-spawn: ^7.0.1
+  bin:
+    cross-env: src/bin/cross-env.js
+    cross-env-shell: src/bin/cross-env-shell.js
+  checksum: 26f2f3ea2ab32617f57effb70d329c2070d2f5630adc800985d8b30b56e8bf7f5f439dd3a0358b79cee6f930afc23cf8e23515f17ccfb30092c6b62c6b630a79
+  languageName: node
+  linkType: hard
+
 "cross-spawn@npm:^6.0.5":
   version: 6.0.5
   resolution: "cross-spawn@npm:6.0.5"
@@ -2889,7 +2901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
+"cross-spawn@npm:^7.0.1, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-spawn@npm:7.0.3"
   dependencies:
@@ -8105,14 +8117,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tersify@npm:^3.8.2":
-  version: 3.8.4
-  resolution: "tersify@npm:3.8.4"
+"tersify@npm:^3.10.2":
+  version: 3.10.2
+  resolution: "tersify@npm:3.10.2"
   dependencies:
-    acorn: ^8.7.0
+    acorn: ^8.7.1
     is-buffer: ^2.0.5
-    unpartial: ^0.7.0
-  checksum: a25eca3c2b2530d23f558314f1c5492278b2238a6bfa40134670ef110306377ead18ff35efa4acf9f78090230ad1926fff4010b83c1f017625ee5843845e0c40
+    unpartial: ^0.7.4
+  checksum: 979ddea534a8b5c72549104b7651a9a3cf0f8b8f2b077090a8f7ae545c7d95ca350d43be820e640f27170d56ff2eed778c3c8b64b5556f5c9c15fd707cab5c5e
   languageName: node
   linkType: hard
 
@@ -8386,13 +8398,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-plus@npm:^4.9.1":
-  version: 4.9.1
-  resolution: "type-plus@npm:4.9.1"
+"type-plus@npm:^4.11.1":
+  version: 4.11.1
+  resolution: "type-plus@npm:4.11.1"
   dependencies:
-    tersify: ^3.8.2
-    unpartial: ^0.6.4
-  checksum: 87b30e4dc42c152e0acebafe2ada57cb2c0504ab8db60934768f352276cc9f38e8a42f81f3ffd8a6fdbbde5a2f0486a9b08a149b165001d86abefdb62879f0e4
+    tersify: ^3.10.2
+    unpartial: ^0.7.5
+  checksum: a888510d7de2022c7d2c71c85fa39571481ea07cc3acf34a118241d430ca882038ca059e2b283670e47cd95fbe643451dc062358eca368831d2e045a1a4dc2c4
   languageName: node
   linkType: hard
 
@@ -8478,17 +8490,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unpartial@npm:^0.6.1, unpartial@npm:^0.6.4":
+"unpartial@npm:^0.6.1":
   version: 0.6.4
   resolution: "unpartial@npm:0.6.4"
   checksum: 34a9d765d97f54ec36036c8d0bd8087874e2b7c4ff2b71a3168687b867d4db2f3a7dd7bc15b50371df9488d280723a1ba8f726b1fdfb5537d293785eee647ec2
   languageName: node
   linkType: hard
 
-"unpartial@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "unpartial@npm:0.7.0"
-  checksum: 2bd3e3e11a0de6a580528abb566df73d5d68bf91d15b53b48504f5c8fd99c5dacae5c193de3434ce31594d682d3cb9d6f9370e36f9aa98ea9c79dde92b67066b
+"unpartial@npm:^0.7.4, unpartial@npm:^0.7.5":
+  version: 0.7.5
+  resolution: "unpartial@npm:0.7.5"
+  checksum: d38b2ba134ad94c7cd2148001865948541da93b51560aa63056940924c3f4cc9eb52da196e7f45df369aa414e5202ddc9483352e663245b4c3b28503573e0ec9
   languageName: node
   linkType: hard
 
@@ -8505,6 +8517,7 @@ __metadata:
     "@size-limit/preset-small-lib": ^7.0.8
     "@types/jest": ^27.5.1
     "@typescript-eslint/eslint-plugin": ^5.26.0
+    cross-env: ^7.0.3
     depcheck: ^1.4.3
     eslint: ^8.16.0
     eslint-plugin-harmony: ^7.1.0
@@ -8520,7 +8533,7 @@ __metadata:
     semantic-release: ^19.0.2
     size-limit: ^7.0.8
     ts-jest: ^28.0.3
-    type-plus: ^4.9.1
+    type-plus: ^4.11.1
     typescript: ^4.7.2
   languageName: unknown
   linkType: soft
