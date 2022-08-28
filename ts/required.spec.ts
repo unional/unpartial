@@ -46,7 +46,7 @@ describe('required()', () => {
     b: number,
     c: { d: boolean },
     e?: string
-  };
+  }
 
   test('can access types in source1', () => {
     const source1: Partial<Source1> = { a: 'a', b: 2, c: { d: true } }
@@ -65,7 +65,7 @@ describe('required()', () => {
     q: number,
     r: { s: boolean },
     t?: string
-  };
+  }
 
   test('can access types in source2', () => {
     const source1: Partial<Source1> = { a: 'a', b: 2, c: { d: true } }
@@ -85,7 +85,7 @@ describe('required()', () => {
     x: number,
     y: { z: boolean },
     u?: string
-  };
+  }
 
   test('can access types in source3', () => {
     const source1: Partial<Source1> = { a: 'a', b: 2, c: { d: true } }
@@ -109,6 +109,18 @@ describe('required()', () => {
     expect(actual.b).toEqual(2)
     expect(actual.c.d).toEqual(true)
     actual.e = undefined
+  })
+
+  it('applies default value for not specified property', () => {
+    type A = { a?: string }
+    const actual = required<A>({ a: 'a' }, {})
+    expect(actual.a).toEqual('a')
+  })
+
+  it('preserves explicit undefined property', () => {
+    type A = { a?: string }
+    const actual = required<A>({ a: 'a' }, { a: undefined })
+    expect(actual.a).toEqual(undefined)
   })
 })
 

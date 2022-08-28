@@ -76,6 +76,15 @@ describe('unpartial()', () => {
     const x = unpartial<TestSubject>({ require: { a: 1 } }, {})
     t.strictEqual(x.require.a, 1)
   })
+
+  it('sets value if not defined', () => {
+    const a = unpartial({ a: 1 }, {})
+    t.strictEqual(a.a, 1)
+  })
+  it('skip property that explicitly undefined', () => {
+    const a = unpartial({ a: 1 }, { a: undefined })
+    t.equal(a.a, undefined)
+  })
 })
 
 describe('unpartialRecursively()', () => {
