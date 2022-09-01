@@ -1,6 +1,4 @@
-## [0.7.5](https://github.com/unional/unpartial/compare/v0.7.4...v0.7.5) (2022-06-11)
-
-## 0.0.0
+## 1.0.0
 
 ### Major Changes
 
@@ -9,6 +7,8 @@
 
   While this can be considered as a fix,
   it is better to release it as a breaking change this change might accidentally break consuming code.
+
+## [0.7.5](https://github.com/unional/unpartial/compare/v0.7.4...v0.7.5) (2022-06-11)
 
 ### Bug Fixes
 
