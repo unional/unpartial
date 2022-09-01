@@ -1,8 +1,7 @@
 ignores:
   - '@commitlint/*'
-  - '@semantic-release/*'
   - '@size-limit/*'
   - '@types/*'
+  - '@typescript-eslint/parser'
   - jest-*
-  - semantic-release
   - ts-jest
