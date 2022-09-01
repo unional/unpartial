@@ -2084,7 +2084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-escapes@npm:^4.2.1, ansi-escapes@npm:^4.3.1":
+"ansi-escapes@npm:^4.2.1":
   version: 4.3.2
   resolution: "ansi-escapes@npm:4.3.2"
   dependencies:
@@ -5411,11 +5411,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-watch-typeahead@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "jest-watch-typeahead@npm:1.1.0"
+"jest-watch-typeahead@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "jest-watch-typeahead@npm:2.1.1"
   dependencies:
-    ansi-escapes: ^4.3.1
+    ansi-escapes: ^5.0.0
     chalk: ^4.0.0
     jest-regex-util: ^28.0.0
     jest-watcher: ^28.0.0
@@ -5423,8 +5423,8 @@ __metadata:
     string-length: ^5.0.1
     strip-ansi: ^7.0.1
   peerDependencies:
-    jest: ^27.0.0 || ^28.0.0
-  checksum: 59b0a494ac01e3801c9ec586de3209153eedb024b981e25443111c5703711d23b67ebc71b072986c1758307e0bfb5bf1c92bd323f73f58602d6f4f609dce6a0c
+    jest: ^27.0.0 || ^28.0.0 || ^29.0.0
+  checksum: ba5f619c82b382e93e3439dc262146c4aa71e126deb118418881c2cf6a83872cde115bef004b1d205df48f050c0cd6c88be1fba5d6ddc1d1aa11195a71ea8d07
   languageName: node
   linkType: hard
 
@@ -8680,7 +8680,7 @@ __metadata:
     jest-validate: ^28.1.0
     jest-watch-suspend: ^1.1.2
     jest-watch-toggle-config: ^2.0.1
-    jest-watch-typeahead: ^1.1.0
+    jest-watch-typeahead: ^2.0.0
     npm-run-all: ^4.1.5
     pinst: ^3.0.0
     rimraf: ^3.0.2
