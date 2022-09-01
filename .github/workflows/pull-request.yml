@@ -5,4 +5,5 @@ on:
 
 jobs:
   code:
-    uses: unional/.github/.github/workflows/yarn-verify-linux.yml@main
+    uses: unional/.github/.github/workflows/pnpm-verify-linux.yml@main
+
