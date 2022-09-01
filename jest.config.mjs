@@ -16,7 +16,6 @@ export default {
     '<rootDir>/ts',
   ],
   transform: {
-    '^.+\\.(js|jsx|mjs)$': 'babel-jest',
   },
   testMatch: ['**/?(*.)+(spec|test|integrate|accept|system|unit).[jt]s?(x)'],
   watchPlugins: [

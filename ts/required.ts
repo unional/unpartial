@@ -5,7 +5,9 @@ export function required<
   R extends Record<any, any> = T,
   S extends Record<any, any> = T & R
 >(source1: Partial<T>, source2: Partial<R> | undefined | null, source3?: Partial<S> | null): T & R & S {
-  return merge([source1, source2, source3], (p, e) => ({ ...p, ...e }))
+  return merge([source1, source2, source3], (p, e) => {
+    return { ...p, ...e }
+  })
 }
 
 export function requiredDeep<
