@@ -20,7 +20,7 @@ interface Config {
   require: { a: number }
   optional?: { a: number }
 }
-const defaultConfig = { require: { a: 1 } }
+const defaultConfig: Config = { require: { a: 1 } }
 
 function foo(givenConfig?: Partial<Config>) {
   const config = unpartial(defaultConfig, givenConfig);
@@ -53,11 +53,16 @@ function foo(givenOption?: Partial<MyOption>) {
 
 There are 3 more functions available in this library:
 
-- `unpartialRecursively()`: `unpartial()` deeply.
-- `required()`: an improved version of `unpartial()` with better type management.
-- `requiredDeep()`: an improved version of `unpartialRecursively()` with better type management.
+- `unpartialRecursively()`: `unpartial()` deeply.\
+  In practice, this does not seem to be useful. Maybe will be deprecated and removed in the future.
+- `required()`: an alternative version of `unpartial()` with a different type management.\
+  This will be deprecated in the future.
+- `requiredDeep()`: an alternative version of `unpartialRecursively()` with a different type management.\
+  This will be deprecated in the future.
 
-The `required()` and `requiredDeep()` function is also exposed in [`type-plus`](https://github.com/unional/type-plus).
+`unpartial` is also exposed through [`type-plus`](https://github.com/unional/type-plus).
+It contains many more functions and type utilities.
+
 Feel free to check it out.
 
 ## Contribute
