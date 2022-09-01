@@ -1,6 +1,6 @@
 {
   "name": "unpartial",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "Unpartial a partialed object",
   "homepage": "https://github.com/unional/unpartial",
   "bugs": {
