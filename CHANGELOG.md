@@ -1,5 +1,11 @@
 ## 1.0.0
 
+## 1.0.1
+
+### Patch Changes
+
+- fa5dce0: fix cjs package.json
+
 ### Major Changes
 
 - dabbde0: The `unpartial()` is rewritten to improve its type management,
