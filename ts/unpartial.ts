@@ -18,9 +18,10 @@ export function unpartialRecursively(arg1: any, arg2: any, arg3?: any) {
  * @param base The base value to fill in needed property if not available in the `partial` value.
  * @param partial The partial value to be unpartialed.
  */
-export function unpartial<T,
-  R extends Partial<T> = Partial<T>
->(base: T, partial: R | undefined | null): T
+export function unpartial<
+  T extends Record<any, any>,
+  R extends Record<any, any> = Partial<T>
+>(base: T, partial: R | undefined | null): { [k in keyof T | keyof R]: T[k] & R[k] }
 /**
  * Unpartial a partial type with two base values.
  * This is useful when you are extending value from another package or code.
@@ -32,10 +33,11 @@ export function unpartial<T,
  * @param base The extended default value of your code.
  * @param partial The input value.
  */
-export function unpartial<T,
-  R = Partial<T> & Record<string, any>,
-  S extends Partial<R> = Partial<R>
->(superBase: T, base: R | undefined | null, partial: (S & Partial<T>) | undefined | null): R
+export function unpartial<
+  T extends Record<any, any>,
+  R extends Record<any, any> = Partial<T>,
+  S extends Record<any, any> = Partial<T & R>
+>(superBase: T, base: R | undefined | null, partial?: S | undefined | null): { [k in keyof T | keyof R | keyof S]: T[k] & R[k] & S[k] }
 export function unpartial(s1: any, s2: any, s3?: any) {
   // defensive check for JS
   if (s1 === undefined || s1 === null) return s1

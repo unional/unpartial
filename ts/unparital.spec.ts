@@ -1,5 +1,5 @@
 import t from 'assert'
-import { isType } from 'type-plus'
+import { assertType, CanAssign, isType, RequiredPick } from 'type-plus'
 import { unpartial, unpartialRecursively } from './index.js'
 
 type Subject = {
@@ -44,8 +44,8 @@ const defaultOptions = {
   ustr: undefined
 }
 
-describe('unpartial2()', () => {
-  it('requires all default fields to be filled in for source1', () => {
+describe('unpartial(base, partial)', () => {
+  it('requires all default fields to be filled in for base', () => {
     const a = unpartial<Subject>({
       num: 1,
       obj: { num: 2, str: 'a', unum: undefined, ustr: undefined },
@@ -62,6 +62,19 @@ describe('unpartial2()', () => {
       uobj: undefined,
       ustr: undefined
     })
+  })
+
+  it('allows all optional fields to be skipped for base', () => {
+    type Options = { a: number, b?: string, c?: boolean }
+
+    unpartial<RequiredPick<Options, 'b'>>({ a: 1, b: 'b' }, {})
+  })
+
+  it('augments additional types from partial', () => {
+    const partial: { a?: number, b?: string, c?: boolean, d?: { x: number } } = {}
+    const a = unpartial({ a: 1 }, partial)
+
+    isType.equal<true, true, CanAssign<typeof a, { a: number, b?: string, c?: boolean, d?: { x: number } }>>()
   })
 
   it('returns undefined if source1 is undefined to avoid unintended error in JS', () => {
@@ -94,7 +107,7 @@ describe('unpartial2()', () => {
   it('gets type from source 1', () => {
     const a = unpartial({ a: 1 }, undefined)
     expect(a).toEqual({ a: 1 })
-    isType.equal<true, { a: number }, typeof a>()
+    isType.equal<true, true, CanAssign<{ a: number }, typeof a>>()
   })
   it('acceps undefined and null in source 2 and 3', () => {
     expect(unpartial(defaultOptions, undefined)).toEqual(defaultOptions)
@@ -133,10 +146,10 @@ describe('unpartial2()', () => {
     // `optional`is still optional
     t.strictEqual(config.optional!.a, 2)
 
-    isType.equal<true, TestSubject, typeof config>()
+    assertType<TestSubject>(config)
   })
   it(`will not affect return type from source 2`, () => {
-    const partial: Partial<TestSubject> | undefined = undefined
+    const partial = undefined as Partial<TestSubject> | undefined
     const config = unpartial(defaultConfig, partial)
 
     // `require` is not optional
@@ -144,7 +157,7 @@ describe('unpartial2()', () => {
     // `optional`is still optional
     t.strictEqual(config.optional, undefined)
 
-    isType.equal<true, TestSubject, typeof config>()
+    assertType<TestSubject>(config)
   })
   it('sets value if not defined', () => {
     const a = unpartial({ a: 1 }, {})
@@ -152,7 +165,9 @@ describe('unpartial2()', () => {
   })
 
   it('skips property that explicitly undefined or null', () => {
-    const a = unpartial<{ a: number, b: number | null }>({ a: 1, b: 2 }, { a: undefined, b: null })
+    const a = unpartial<{ a: number, b: number | null }>(
+      { a: 1, b: 2 },
+      { a: undefined, b: null })
     expect(a).toEqual({ a: 1, b: 2 })
   })
 
@@ -160,7 +175,6 @@ describe('unpartial2()', () => {
     unpartial(defaultOptions, { newField: 1 }, { newField: 2 })
   })
 })
-
 
 describe('unpartialRecursively()', () => {
   interface Config {
