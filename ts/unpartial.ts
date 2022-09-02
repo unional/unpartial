@@ -21,7 +21,7 @@ export function unpartialRecursively(arg1: any, arg2: any, arg3?: any) {
 export function unpartial<
   T extends Record<any, any>,
   R extends Record<any, any> = Partial<T>
->(base: T, partial: R | undefined | null): { [k in keyof T | keyof R]: T[k] & R[k] }
+>(base: T, partial: R | undefined | null): { [k in keyof T | keyof R]: R[k] & T[k] }
 /**
  * Unpartial a partial type with two base values.
  * This is useful when you are extending value from another package or code.
@@ -37,7 +37,7 @@ export function unpartial<
   T extends Record<any, any>,
   R extends Record<any, any> = Partial<T>,
   S extends Record<any, any> = Partial<T & R>
->(superBase: T, base: R | undefined | null, partial?: S | undefined | null): { [k in keyof T | keyof R | keyof S]: T[k] & R[k] & S[k] }
+>(superBase: T, base: R | undefined | null, partial?: S | undefined | null): { [k in keyof T | keyof R | keyof S]: S[k] & R[k] & T[k] }
 export function unpartial(s1: any, s2: any, s3?: any) {
   // defensive check for JS
   if (s1 === undefined || s1 === null) return s1
