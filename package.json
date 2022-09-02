@@ -42,7 +42,7 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "publish": "pnpm cs publish",
+    "release": "pnpm cs publish",
     "size": "size-limit",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "verify": "npm-run-all clean -p build depcheck lint -p coverage size",
