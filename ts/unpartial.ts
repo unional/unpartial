@@ -25,11 +25,11 @@ export function unpartial<
 /**
  * Unpartial a partial type with two base values.
  * This is useful when you are extending value from another package or code.
- * That means you have a `superBase` value from the original code,
+ * That means you have a `parent` value from the original code,
  * a `base` value where you add additional defaults or override existing one,
  * and `partial` value from input.
  * @type R Type of `base`. This type will be used as the return type.
- * @param superBase The default value from the original code.
+ * @param parent The default value from the original code.
  * @param base The extended default value of your code.
  * @param partial The input value.
  */
@@ -37,7 +37,7 @@ export function unpartial<
   T extends Record<any, any>,
   R extends Record<any, any> = Partial<T>,
   S extends Record<any, any> = Partial<T & R>
->(superBase: T, base: R | undefined | null, partial?: S | undefined | null): { [k in keyof T | keyof R | keyof S]: S[k] & R[k] & T[k] }
+>(parent: T, base: R | undefined | null, partial: S | undefined | null): { [k in keyof T | keyof R | keyof S]: S[k] & R[k] & T[k] }
 export function unpartial(s1: any, s2: any, s3?: any) {
   // defensive check for JS
   if (s1 === undefined || s1 === null) return s1

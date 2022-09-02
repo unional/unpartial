@@ -69,11 +69,11 @@ Feel free to check it out.
 
 ```sh
 # after fork and clone
-yarn
+pnpm install
 
 # begin making changes
 git checkout -b <branch>
-yarn watch
+pnpm watch
 
 # after making change(s)
 git commit -m "<commit message>"
