@@ -1,5 +1,15 @@
 ## 1.0.0
 
+## 1.0.2
+
+### Patch Changes
+
+- 6070a75: Update types to fix some use cases.
+  It is now based on the type from `required()` but make some improvements.
+
+  - Result now honors `| undefined` property
+  - Type is constructed instead of intersect, making it easier to read
+
 ## 1.0.1
 
 ### Patch Changes
