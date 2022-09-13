@@ -1,5 +1,11 @@
 export default {
   preset: 'ts-jest/presets/default-esm',
+  globals: {
+    'ts-jest': {
+      isolatedModule: true,
+      useESM: true,
+    },
+  },
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
@@ -10,11 +16,11 @@ export default {
     '<rootDir>/ts',
   ],
   transform: {
-    '^.+\\.(js|jsx|mjs)$': 'babel-jest',
-    '^.+\\.(ts|tsx|mts|cts)$': ['ts-jest', {
-      isolatedModules: true,
-      useESM: true,
-    }]
+    // '^.+\\.(js|jsx|mjs)$': 'babel-jest',
+    // '^.+\\.(ts|tsx|mts|cts)$': ['ts-jest', {
+    //   isolatedModules: true,
+    //   useESM: true,
+    // }]
   },
   // transformIgnorePatterns: [
   //   // Need to MANUALLY identify each ESM package, one by one
