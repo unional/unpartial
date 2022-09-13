@@ -1,5 +1,15 @@
 ## 1.0.0
 
+## 1.0.3
+
+### Patch Changes
+
+- afa4606: Improve `unpartial(base, partial)` type.
+
+  The type for `unpartial(parent, base, partial)` is marked as deprecated.
+  The type is loosened now similar to `required(parent, base, partial)` to make it more flexible.
+  But note that it is incorrect as the values are not deeply merged.
+
 ## 1.0.2
 
 ### Patch Changes
