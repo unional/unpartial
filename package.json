@@ -39,6 +39,8 @@
     "cs": "changeset",
     "depcheck": "depcheck",
     "lint": "eslint --ext=ts,js .",
+    "nuke": "run-s clean nuke:local",
+    "nuke:local": "rimraf node_modules || true",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
