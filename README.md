@@ -51,14 +51,23 @@ function foo(givenOption?: Partial<MyOption>) {
 }
 ```
 
+**This is deprecated** because currently TypeScript does not support optional generic type,
+so it is not possible to create a satisfactory signature that works with both implicit and explicit type.
+
+Instead, please use composition when combining 3 or more values:
+
+```ts
+unpartial(unpartial(defaultOption, myDefaultOption), givenOption)
+```
+
 There are 3 more functions available in this library:
 
 - `unpartialRecursively()`: `unpartial()` deeply.\
   In practice, this does not seem to be useful. Maybe will be deprecated and removed in the future.
 - `required()`: an alternative version of `unpartial()` with a different type management.\
-  This will be deprecated in the future.
+  This will become identical to `unpartial()` in the future.
 - `requiredDeep()`: an alternative version of `unpartialRecursively()` with a different type management.\
-  This will be deprecated in the future.
+  This will become identical to `unpartial()` in the future.
 
 `unpartial` is also exposed through [`type-plus`](https://github.com/unional/type-plus).
 It contains many more functions and type utilities.
