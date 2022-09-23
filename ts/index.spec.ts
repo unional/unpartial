@@ -1,32 +1,6 @@
 import t from 'node:assert'
-import { assertType, isType, RequiredExcept, RequiredPick } from 'type-plus'
+import { assertType, isType } from 'type-plus'
 import { required, requiredDeep, unpartial, unpartialRecursively } from './index.js'
-
-describe('RequiredPick<T, K>', () => {
-  it('makes picked properties required', () => {
-    type Type = {
-      a?: number,
-      b?: number,
-      c: number,
-    }
-
-    type A = RequiredPick<Type, 'a'>
-    isType.equal<true, { a: number, b?: number, c: number }, A>()
-  })
-})
-
-describe('RequiredExcept<T, K>', () => {
-  it('makes not picked properties required', () => {
-    type Type = {
-      a?: number,
-      b?: number,
-      c: number,
-    }
-
-    type A = RequiredExcept<Type, 'a'>
-    isType.equal<true, { a?: number, b: number, c: number }, A>()
-  })
-})
 
 type TestSubject = { require: { a: number }, optional?: { a: number } }
 
