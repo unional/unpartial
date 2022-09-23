@@ -1,5 +1,11 @@
 ## 1.0.0
 
+## 1.0.4
+
+### Patch Changes
+
+- 4e3eba3: Omit `Pick` when it is not needed.
+
 ## 1.0.3
 
 ### Patch Changes
