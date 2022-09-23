@@ -55,6 +55,7 @@ describe('unpartial(base, input)', () => {
   it('ignores undefined partial', () => {
     expect(unpartial({ a: 1 }, undefined)).toEqual({ a: 1 })
   })
+
   it('ignores null partial', () => {
     expect(unpartial({ a: 1 }, null)).toEqual({ a: 1 })
   })
@@ -128,6 +129,12 @@ describe('unpartial(base, input)', () => {
 
     isType.equal<false, { a: { b: number, c: number } }, typeof a>()
     isType.equal<true, { a: { b: number } | { c: number } }, typeof a>()
+  })
+
+  it('do not contain `Pick<>` when not necessary', () => {
+    // This test always pass, need to inspect directly
+    const a = unpartial({ a: { a: 1 } }, { a: { b: 2 } })
+    assertType<{ a: { a: number } | { b: number } }>(a)
   })
 })
 
