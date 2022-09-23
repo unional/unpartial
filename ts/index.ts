@@ -62,8 +62,12 @@ export function unpartial<
   T extends Record<any, any>,
   R extends Record<any, any> = Partial<T>
 >(base: T, partial: R | undefined | null):
-  { [P in keyof T]: P extends keyof R ? T[P] | Exclude<R[P], undefined> : T[P] }
-  & Pick<R, Exclude<keyof R, keyof T>>
+  Exclude<keyof R, keyof T> extends infer K
+  ? ([K] extends [never]
+    ? { [P in keyof T]: P extends keyof R ? T[P] | Exclude<R[P], undefined> : T[P] }
+    : { [P in keyof T]: P extends keyof R ? T[P] | Exclude<R[P], undefined> : T[P] } & Pick<R, K>)
+  : never
+
 /**
 * Unpartial a partial type with two base values.
 * This is useful when you are extending value from another package or code.
