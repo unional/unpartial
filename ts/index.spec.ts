@@ -1,32 +1,6 @@
 import t from 'node:assert'
-import { assertType, isType, RequiredExcept, RequiredPick } from 'type-plus'
+import { assertType, isType } from 'type-plus'
 import { required, requiredDeep, unpartial, unpartialRecursively } from './index.js'
-
-describe('RequiredPick<T, K>', () => {
-  it('makes picked properties required', () => {
-    type Type = {
-      a?: number,
-      b?: number,
-      c: number,
-    }
-
-    type A = RequiredPick<Type, 'a'>
-    isType.equal<true, { a: number, b?: number, c: number }, A>()
-  })
-})
-
-describe('RequiredExcept<T, K>', () => {
-  it('makes not picked properties required', () => {
-    type Type = {
-      a?: number,
-      b?: number,
-      c: number,
-    }
-
-    type A = RequiredExcept<Type, 'a'>
-    isType.equal<true, { a?: number, b: number, c: number }, A>()
-  })
-})
 
 type TestSubject = { require: { a: number }, optional?: { a: number } }
 
@@ -81,6 +55,7 @@ describe('unpartial(base, input)', () => {
   it('ignores undefined partial', () => {
     expect(unpartial({ a: 1 }, undefined)).toEqual({ a: 1 })
   })
+
   it('ignores null partial', () => {
     expect(unpartial({ a: 1 }, null)).toEqual({ a: 1 })
   })
@@ -154,6 +129,12 @@ describe('unpartial(base, input)', () => {
 
     isType.equal<false, { a: { b: number, c: number } }, typeof a>()
     isType.equal<true, { a: { b: number } | { c: number } }, typeof a>()
+  })
+
+  it('do not contain `Pick<>` when not necessary', () => {
+    // This test always pass, need to inspect directly
+    const a = unpartial({ a: { a: 1 } }, { a: { b: 2 } })
+    assertType<{ a: { a: number } | { b: number } }>(a)
   })
 })
 
