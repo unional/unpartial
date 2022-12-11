@@ -1,5 +1,6 @@
 ignores:
   - '@commitlint/*'
+  - '@repobuddy/jest'
   - '@size-limit/*'
   - '@types/*'
   - '@typescript-eslint/parser'
