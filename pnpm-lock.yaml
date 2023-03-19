@@ -27,7 +27,7 @@ specifiers:
   rimraf: ^3.0.2
   size-limit: ^8.1.0
   ts-jest: ^29.0.3
-  type-plus: ^5.0.0
+  type-plus: ^6.0.0
   typescript: ^4.8.4
 
 devDependencies:
@@ -57,7 +57,7 @@ devDependencies:
   rimraf: 3.0.2
   size-limit: 8.1.0
   ts-jest: 29.0.3_r7gdwuj75x2gz25bauak3xcnbm
-  type-plus: 5.0.0
+  type-plus: 6.0.0
   typescript: 4.8.4
 
 packages:
@@ -5511,6 +5511,13 @@ packages:
 
   /type-plus/5.0.0:
     resolution: {integrity: sha512-nKp5pOQDldmR9BdEjLplLFwiXTVhOK2kReBSgVJ65URDLXCqENYzVDCONaExADIIc1CAGzvzTkB0TUgMAWR2qQ==}
+    dependencies:
+      tersify: 3.11.1
+      unpartial: 1.0.4
+    dev: true
+
+  /type-plus/6.0.0:
+    resolution: {integrity: sha512-ezkCTr6LGC87w9LHc83XJnJFfaeEa/nPhr4yzBKv2+Pw0y4FXKHgrJ2GWM4H1nSKzcEPv4q/Sfw4MKmi8NTxbg==}
     dependencies:
       tersify: 3.11.1
       unpartial: 1.0.4
