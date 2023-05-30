@@ -79,7 +79,7 @@
     "rimraf": "^5.0.0",
     "size-limit": "^8.1.0",
     "ts-jest": "^29.0.3",
-    "type-plus": "^6.0.0",
+    "type-plus": "^7.0.0",
     "typescript": "^5.0.0"
   },
   "packageManager": "pnpm@8.6.0",
