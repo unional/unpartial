@@ -1,4 +1,10 @@
 {
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
   "cSpell.words": [
     "codeql",
     "infile",
