@@ -1,3 +1,4 @@
+import { describe, expect, it, test } from '@jest/globals'
 import t from 'node:assert'
 import { assertType, isType } from 'type-plus'
 import { required, requiredDeep, unpartial, unpartialRecursively } from './index.js'
