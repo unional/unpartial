@@ -13,6 +13,7 @@
     "pinst",
     "repobuddy",
     "snyk",
+    "tsbuildinfo",
     "unpartial"
   ],
   "json.schemas": [

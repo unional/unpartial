@@ -51,6 +51,7 @@ node_modules
 !.yarn/versions
 
 # project folders
+*.tsbuildinfo
 cjs
 dist*
 esm

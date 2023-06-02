@@ -1,24 +1,11 @@
 {
+  "extends": "@repobuddy/typescript/tsconfig/monorepo",
   "compilerOptions": {
-    "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "lib": [
-      "es2015"
-    ],
-    "newLine": "LF",
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "removeComments": false,
-    "rootDir": "ts",
-    "sourceMap": true,
-    "strict": true,
-    "useDefineForClassFields": true
+    "exactOptionalPropertyTypes": false,
+    "rootDir": "ts"
   },
   "include": [
-    "typings"
-  ],
-  "files": [
-    "ts/index.ts"
+    "ts",
+    "types"
   ]
 }
