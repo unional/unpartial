@@ -66,7 +66,7 @@
     "@jest/globals": "^29.5.0",
     "@repobuddy/jest": "^3.0.0",
     "@repobuddy/typescript": "^1.2.0",
-    "@size-limit/preset-small-lib": "^8.1.0",
+    "@size-limit/preset-small-lib": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "cross-env": "^7.0.3",
