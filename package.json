@@ -84,7 +84,7 @@
     "pinst": "^3.0.0",
     "repobuddy": "^1.0.2",
     "rimraf": "^5.0.0",
-    "size-limit": "^8.1.0",
+    "size-limit": "^9.0.0",
     "ts-jest": "^29.0.3",
     "type-plus": "^7.0.1",
     "typescript": "^5.0.0"
