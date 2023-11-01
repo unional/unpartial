@@ -105,7 +105,7 @@ your editor right next to your code.
 [codecov-url]: https://codecov.io/gh/unional/unpartial
 [downloads-image]: https://img.shields.io/npm/dm/unpartial.svg?style=flat
 [downloads-url]: https://npmjs.org/package/unpartial
-[github-nodejs]: https://github.com/unional/unpartial/workflows/nodejs/badge.svg
+[github-nodejs]: https://github.com/unional/unpartial/workflows/release/badge.svg
 [github-action-url]: https://github.com/unional/unpartial/actions
 [npm-image]: https://img.shields.io/npm/v/unpartial.svg?style=flat
 [npm-url]: https://npmjs.org/package/unpartial
