@@ -87,7 +87,7 @@
     "size-limit": "^9.0.0",
     "ts-jest": "^29.0.3",
     "type-plus": "^7.0.1",
-    "typescript": "^5.0.0"
+    "typescript": "^6.0.0"
   },
   "packageManager": "pnpm@11.5.0",
   "engines": {
