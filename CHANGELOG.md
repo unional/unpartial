@@ -1,5 +1,16 @@
 # unpartial
 
+## 1.0.8
+
+### Patch Changes
+
+- a123600: Pin `type-plus` (devDependency) to the exact `8.0.0-beta.10`.
+  
+  `type-plus` is used only in this package's test file (`assertType`, `isType.equal`),
+  never re-exported or referenced from `ts/index.ts`, so it does not appear in the
+  published `.d.ts`. No source change was needed and no runtime dependency exists
+  between this package and type-plus, so consumers see nothing.
+
 ## 1.0.7
 
 ### Patch Changes
