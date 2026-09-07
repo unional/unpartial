@@ -48,8 +48,8 @@ importers:
         specifier: ^2.10.12
         version: 2.10.12
       type-plus:
-        specifier: ^7.6.2
-        version: 7.6.2
+        specifier: 8.0.0-beta.10
+        version: 8.0.0-beta.10(typescript@7.0.2)
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -984,8 +984,8 @@ packages:
   '@yuku-toolchain/types@0.8.7':
     resolution: {integrity: sha512-2Z53dNxAJL6UvFoIrDZvYf3zlO8s4VJK4O2hhaB4mXVwwpX/7ajtss3cmfqKvamlNLWyt9FSWs4eoYdlbxpnHA==}
 
-  acorn@8.8.1:
-    resolution: {integrity: sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==}
+  acorn@8.18.0:
+    resolution: {integrity: sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -1355,10 +1355,6 @@ packages:
 
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
-
-  is-buffer@2.0.5:
-    resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
-    engines: {node: '>=4'}
 
   is-core-module@2.16.2:
     resolution: {integrity: sha512-evOr8xfXKxE6qSR0hSXL2r3sd7ALj8+7jQEUvPYcm5sgZFdJ+AYzT6yNmJenvIYQBgIGwfwz08sL8zoL7yq2BA==}
@@ -1821,8 +1817,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  tersify@3.11.1:
-    resolution: {integrity: sha512-W/Kv1z+cgDRsI10p9CyCZJ+gopPUVOz1/h7OPntr6D52iIHQTbsg40MBUoaG82q8IgD/GKoWhoujg/rOxQW7SA==}
+  tersify@4.0.6:
+    resolution: {integrity: sha512-+z2dTeRvbPyI7qiAmBY+VgWnhhN9IuaGjgrPfeF33hI4A/Yd9KT11tbc4l8vfIA3L/5EWiE0swvxOfAckGRuzA==}
 
   tinybench@2.9.0:
     resolution: {integrity: sha512-0+DUvqWMValLmha6lr4kD8iAMK1HzV0/aKnCtWb9v9641TnP/MFb7Pc2bxoxQjTXAErryXVgUOfv2YqNllqGeg==}
@@ -1885,8 +1881,10 @@ packages:
     resolution: {integrity: sha512-AswgMPnpOoaVZHrrSBejETzEbuIA69OVGwfkHwfrY0A23VjWXBANzgq9+OymWOHAIArB7D1+1z498WY8fGg1Jw==}
     hasBin: true
 
-  type-plus@7.6.2:
-    resolution: {integrity: sha512-qUlXv9Y0/W56pg38m275IMD3WA03QbVoqNY16S3kmwtuA4gOT2iheyUdOp8NWrmXWpf7om98hzr7AZD/eW2jLA==}
+  type-plus@8.0.0-beta.10:
+    resolution: {integrity: sha512-ZdhzmQg7f8oxt5Cbivslk8o3zef8L3ibpKIeGH1ESf73y8ZEY1z9fe4Z3fTxcjmFOb8ESE1TbW/MCgEvpeLC4w==}
+    peerDependencies:
+      typescript: '>= 5.6.0'
 
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
@@ -1899,9 +1897,9 @@ packages:
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
-  unpartial@1.0.4:
-    resolution: {integrity: sha512-xY8319WOQcRDRVFWvTty2YJXKvM8XRPehqWZUd7k/BatpbuitI4Jd+2xlwjTZbZScSvT75TnUsUmy5uwFa3o0g==}
-    engines: {node: '>=6'}
+  unpartial@1.0.7:
+    resolution: {integrity: sha512-DeyxEI3KSlmDihGAk3Js/p/Ca886ymIz39pWH3VVV/LZ36MsRETylFS37fdzWBWDjMlzB63Rdy2KLCdetOMPig==}
+    engines: {node: '>= 20'}
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
@@ -2820,7 +2818,7 @@ snapshots:
 
   '@yuku-toolchain/types@0.8.7': {}
 
-  acorn@8.8.1: {}
+  acorn@8.18.0: {}
 
   ajv@8.11.0:
     dependencies:
@@ -3169,8 +3167,6 @@ snapshots:
   ini@6.0.0: {}
 
   is-arrayish@0.2.1: {}
-
-  is-buffer@2.0.5: {}
 
   is-core-module@2.16.2:
     dependencies:
@@ -3554,11 +3550,10 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  tersify@3.11.1:
+  tersify@4.0.6:
     dependencies:
-      acorn: 8.8.1
-      is-buffer: 2.0.5
-      unpartial: 1.0.4
+      acorn: 8.18.0
+      unpartial: 1.0.7
 
   tinybench@2.9.0: {}
 
@@ -3611,10 +3606,11 @@ snapshots:
       '@turbo/windows-64': 2.10.12
       '@turbo/windows-arm64': 2.10.12
 
-  type-plus@7.6.2:
+  type-plus@8.0.0-beta.10(typescript@7.0.2):
     dependencies:
-      tersify: 3.11.1
-      unpartial: 1.0.4
+      tersify: 4.0.6
+      typescript: 7.0.2
+      unpartial: 1.0.7
 
   typescript@7.0.2:
     optionalDependencies:
@@ -3646,7 +3642,7 @@ snapshots:
 
   undici-types@8.3.0: {}
 
-  unpartial@1.0.4: {}
+  unpartial@1.0.7: {}
 
   uri-js@4.4.1:
     dependencies:
